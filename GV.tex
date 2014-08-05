@@ -31,13 +31,21 @@ Previous large scale surveys of galaxies have revealed a bimodality in the colou
 
 The sparsely populated colour space between these two populations, the so-called `green valley', provides clues to the nature and duration of galaxies' transitions from blue to red. This transition must therefore occur on rapid timescales, otherwise we would find an accumulation of galaxies residing in the green valley, rather than an accumulation in the red sequence as is observed \citep{Arnouts07, Martin07}. Green valley galaxies have therefore long been thought of as the `crossroads' of galaxy evolution; a transition population between the two main galactic stages of the star forming blue cloud and the `dead' red sequence \citep{Bell04, Wyder07, Schim07, Martin07, Faber07, Mendez11, Gonc12, Sch2014}. 
 
+\begin{figure*}
+\centering{
+\includegraphics[width=\textwidth]{mosaic_disc_fraction.pdf}}
+\caption{Mosaic of SDSS images showing the continuous probabilistic nature of the Galaxy Zoo sample. The debiased disc vote fraction (see \citealt{GZ2}) for each galaxy is shown.}
+\label{mosaic}
+\end{figure*}
+
 The intermediate colours of these green valley galaxies have been interpreted as evidence for recent quenching (suppression) of star formation \citep{Salim07}. Star forming galaxies are observed to lie on a well defined mass-SFR relation, however quenching a galaxy causes it to depart from this relation (\citealt{Noeske07, Peng}; see Figure \ref{sfr_mass_sub})
+
+
 
 By studying the galaxies which  have just left this mass-SFR relation, we can probe the quenching mechanisms by which this occurs. There have been many previous theories for the initial triggers of these quenching mechanisms, including negative feedback from AGN \citep{Sch07}, mergers \citep{Darg10a}, supernovae winds \citep{MFB12} and secular evolution \citep{Masters10, Masters11}. By investigating the \emph{amount} of quenching that has occurred between the blue cloud, green valley and red sequence (the three populations) we can apply some constraints to these theories. 
 
 We have been motivated by a recent result suggesting two contrasting evolutionary pathways through the green valley by different morphological types (Schawinski et al. 2014), specifically that late-type galaxies quench very slowly and form a nearly static disc population in the green valley, whereas early-type galaxies quench very rapidly, transitioning through the green valley and onto the red sequence in $\sim 1$~Gyr. That study used a toy model to examine quenching across the green valley; here we implement a novel method utilising Bayesian statistics (for a comprehensive overview of Bayesian statistics see either \citealt{MacKay} or \citealt{Sivia}) in order to find the most likely model description of the star formation histories of galaxies in the three populations. It also provides a direct comparison with our current understanding of galaxy evolution from stellar population synthesis (SPS, see section \ref{SPS}) models. 
 
-%We have been motivated by a previous Galaxy Zoo investigation by  \cite[hereafter S14]{Sch2014}, who by using a toy model found two contrastingly different evolutionary pathways between morphological types across the green valley. Their conclusions suggested that late-type (disc-like) galaxies quench very slowly due to gas depletion across the blue cloud until they reach the green valley after several gigayears with little morphological changes (suggesting a static disc population in the green valley); whereas early-type (smooth-like) galaxies quench very rapidly, triggering a morphological change and transitioning to the red sequence in $\sim 1~\rm{Gyr}$. Unlike this previous study, this investigation implements a novel method utilising Bayesian statistics (for a comprehensive overview of Bayesian statistics see either \citealt{MacKay} or \citealt{Sivia}) in order to find the most likely model description of the star formation histories of galaxies in the three populations. It also provides a direct comparison with our current understanding of galaxy evolution from stellar population synthesis (SPS, see section \ref{SPS}) models. 
 
 \begin{table*}
 \begin{tabular*}{0.9\textwidth}{r| @{\extracolsep{\fill}}cccc}
@@ -49,7 +57,7 @@ Early-type ($p_s \geq 0.8$) & \begin{tabular}[c]{@{}c@{}}10517\\ (8.3\%)\end{tab
 Late-type ($p_s \geq 0.8$)  & \begin{tabular}[c]{@{}c@{}}51470\\ (40.9\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}4493\\ (3.6\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}6817\\ (5.4\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}40430\\ (32.0\%)\end{tabular}  \\ \hline
 \textbf{Total}                       & \begin{tabular}[c]{@{}c@{}}\textbf{126316} \\ (100.0\%)\end{tabular}                                                & \begin{tabular}[c]{@{}c@{}}28146 \\ (22.3\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}23944 \\ (18.9\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}74226 \\ (58.7\%)\end{tabular} \\\hline
 \end{tabular*}
-\caption{Table showing the break down of the GZ2 sample into the subsets of the colour-magnitude diagram by galaxy type.}
+\caption{Table showing the decomposition of the GZ2 sample by galaxy type into the subsets of the colour-magnitude diagram.}
 \label{subs}
 \end{table*}
 
@@ -74,23 +82,10 @@ We obtained star formation rates and stellar masses from the MPA-JHU catalog (\c
 
 We further select a sub-sample with detailed morphological classifications, as described below.
 
-\begin{figure}
-\centering{
-\includegraphics[width=0.45\textwidth]{col_mag_with_GV.pdf}}
-\caption{Colour-magnitude diagram for the Galaxy Zoo 2 population showing the definition between the blue cloud and the red sequence from \citet{Baldry04} with the dashed line. The solid lines show $\pm 1\sigma$ either side of this definition; any galaxy within the boundary of these two solid lines is considered a green valley galaxy.}
-\label{CMGV}
-\end{figure}
-
 \subsection{Galaxy Zoo 2 Morphological classifications}\label{class}
 
-\begin{figure*}
-\centering{
-\includegraphics[width=\textwidth]{mosaic_disc_fraction.pdf}}
-\caption{Mosaic of SDSS images showing the continuous nature of the Galaxy Zoo sample. The debiased disc vote fraction for each galaxy is shown.}
-\label{mosaic}
-\end{figure*}
 
-In this investigation we utilise visual classifications of galaxy morphologies from the Galaxy Zoo 2\footnote{\url{http://zoo2.galaxyzoo.org/}} citizen science project \citep{GZ2}, which obtains multiple independent classifications for each galaxy image; for which the full question tree for each image is shown in Figure 1 of \citet{GZ2}.  
+In this investigation we utilise visual classifications of galaxy morphologies from the Galaxy Zoo 2\footnote{\url{http://zoo2.galaxyzoo.org/}} citizen science project \citep{GZ2}, which obtains multiple independent classifications for each galaxy image; for which the full question tree for each image is shown in Figure 1 of \citealt{GZ2}.  
 
 Specifically, the Galaxy Zoo 2 (GZ2) project consists of $304, 022$ images from the SDSS DR8 (a subset of those classified in Galaxy Zoo 1; GZ1) all classified by \emph{at least} 17 independent users, with the mean number of classifications standing at $\sim42$.The GZ2 sample is more robust than the GZ1 sample and provides more detailed morphological classifications, including features such as bars, the number of spiral arms and the ellipticity of smooth galaxies. It is for these reasons we use the GZ2 sample, as opposed to the GZ1, allowing for further investigation of specific galaxy classes in the future (see Section \ref{future}). The only further selection that was made to the sample was for the removal of  objects considered to be stars or artefacts by the users (i.e. with $p_{star/artefact} ~\geq~ 0.8$). Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample were observed, giving a total sample size of $126, 316$ galaxies. 
 
@@ -107,6 +102,12 @@ C'_{ur}(M_{r}) = 2.06 - 0.244 \tanh \left( \frac{M_r + 20.07}{1.09}\right)
 \end{equation}
 and is shown in Figure \ref{CMGV} by the dashed line. Any galaxy within $\pm 1\sigma$ of this line, shown by the solid lines in Figure \ref{CMGV}, is considered a green valley galaxy. We adopt a conservative definition for the green valley in order to ensure we sample definitive green valley galaxies. The decomposition of our sample into red sequence, green valley and blue cloud galaxies is shown in Table \ref{subs} along with further subsections by galaxy type. This table also defines the definitions we adopt henceforth for early-type ($p_s~ \geq~0.8$), late-type ($p_d~ \geq~0.8$), smooth-like ($p_s~ >~0.5$) and disc-like ($p_d~ >~0.5$) galaxies. 
 
+\begin{figure}
+\centering{
+\includegraphics[width=0.45\textwidth]{col_mag_with_GV.pdf}}
+\caption{Colour-magnitude diagram for the Galaxy Zoo 2 population showing the definition between the blue cloud and the red sequence from \citet{Baldry04} with the dashed line. The solid lines show $\pm 1\sigma$ either side of this definition; any galaxy within the boundary of these two solid lines is considered a green valley galaxy.}
+\label{CMGV}
+\end{figure}
 
 \section{A Bayesian Analysis}\label{models}
 \subsection{Stellar Population Synthesis Models}\label{SPS}
