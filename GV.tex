@@ -157,70 +157,53 @@ Figure \ref{pred} shows these predicted optical and NUV colours at a time of $t^
 
 
 \subsection{Bayesian Techniques}\label{stats}
-In order to achieve robust conclusions we conduct a a fully Bayesian analysis \citep{Sivia, MacKay} of our SFH models in comparison to the observed GZ2 sample data. This approach requires consideration of all possible combinations of $\theta \equiv (t_{q}, \tau)$ which will be distributed with a mean, $\mu$ and standard deviation, $\sigma$, so that:
-\begin{equation}
-w = (\mu_{\theta}, \sigma_{\theta}) = (\mu_{t_{q}}, \sigma_{t_{q}}, \mu_{\tau}, \sigma_{\tau})
-\end{equation}
-Defining the Bayesian probability for a combination of $\theta$ values \underline{given} what we know about $w$: $P(\theta|w) = P(t_{q}, \tau|w) = P(t_{q}|w)P(\tau|w)$, gives:
-\begin{multline}\label{prior}
-P(\theta|w) = \frac{1}{\sqrt[]{4\pi^2\sigma^2_{t_{q}}\sigma^2_{\tau}}} \exp\left[-\frac{(t_{q}-\mu_{t_{q}})^2}{2\sigma^2_{t_{q}}}\right] \\ \exp\left[-\frac{(\tau-\mu_{\tau})^2}{2\sigma^2_{\tau}}\right].
-\end{multline}
-%This is equivalent to:
-%\begin{equation}
-%P(\theta|w) = \frac{1}{Z_{\theta}} \exp\left[-\frac{\chi_{\theta}^2}{2}\right].
-%\end{equation}
-%Therefore if we work in logarithmic probabilities:
-%\begin{equation}
-%\log[P(\theta|w)] = - \log(Z_{\theta}) - \frac{\chi_{\theta}^2}{2}.
-%\end{equation}
-Here we assume that $ P(t_{q}|w)$ and $P(\tau|w)$ are independent of each other, as we have no prior knowledge of how these two parameters are related. Perhaps if we were to investigate a specific mechanism, for which we knew the quenching timescale and the epoch at which it is most common then we may assume otherwise. However, since we are attempting to investigate quenching mechanisms as a whole we make the simplest assumption for our prior and take a broad Gaussian distribution across both parameter spaces. 
-
-The probability of all of the GZ2 data ($\underline{d}$) \underline{given} a SFH model, i.e. a single combination of $\theta$ values, $P(\underline{d}|\theta, t_{k}^{obs})$ is then:
-\begin{equation}
-P(\underline{d}|\theta, t_{k}^{obs}) = \prod_{k} P(d_{k}|\theta, t_{k}^{obs}),
-\end{equation}
-where $d_{k}$ is a single data point of one galaxy. Assuming that all galaxies formed at $t=0~\rm{Gyr}$ with an initial burst of star formation, we can assume that the `age' of each galaxy in the GZ2 sample is equivalent to an observed time, $t^{obs}_{k}$ (see Section \ref{class}). We then use this  `age' to calculate the predicted model colours at this cosmic time for a given combination of $\theta$: $d_{c,p}(\theta, t^{obs}_{k})$ for both optical $(c=opt)$ and NUV $(c=NUV)$ colours. We can now directly compare our model colours with the observed GZ2 galaxy colours, so that for a single galaxy k with optical ($u-r$) colour, $d_{opt, k}$ and NUV ($NUV-u$) colour, $d_{NUV,k}$, the Bayesian probability $P(d_{k}|\theta, t^{obs}_{k})$:
-
-%We calculate $P(d_{k}|\theta, t_{k}^{obs})$ using the predicted values for the optical ($c=opt$) and NUV ($c=NUV$) colours, $d_{c,p}(\theta, t_{k}^{obs})$, for a given combination of $\theta = (t_{q}, \tau)$ and a calculated galaxy age $t^{obs}$ (look back time, calculated from a galaxy's redshift, equivalent to the age of the galaxy assuming that all galaxies formed at $t=0~Gyr$):
+In order to achieve robust conclusions we conduct a a fully Bayesian analysis \citep{Sivia, MacKay} of our SFH models in comparison to the observed GZ2 sample data. This approach requires consideration of all possible combinations of $\theta \equiv (t_{q}, \tau)$. Assuming that all galaxies formed at $t=0~\rm{Gyr}$ with an initial burst of star formation, we can assume that the `age' of each galaxy in the GZ2 sample is equivalent to an observed time, $t^{obs}_{k}$ (see Section \ref{class}). We then use this  `age' to calculate the predicted model colours at this cosmic time for a given combination of $\theta$: $d_{c,p}(\theta, t^{obs}_{k})$ for both optical and NUV $(c={opt,NUV})$ colours. We can now directly compare our model colours with the observed GZ2 galaxy colours, so that for a single galaxy k with optical ($u-r$) colour, $d_{opt, k}$ and NUV ($NUV-u$) colour, $d_{NUV,k}$, the {\changed likelihood $P(d_{k}|\theta, t^{obs}_{k})$ is}:
 
 \begin{multline}\label{like}
 P(d_{k}|\theta, t^{obs}_{k}) = \frac{1}{\sqrt{2\pi\sigma_{opt, k}^2}}\frac{1}{\sqrt{2\pi\sigma_{NUV, k}^2}} \\ \exp{\left[ - \frac{(d_{opt, k} - d_{opt, p}(\theta, t_{k}^{obs}))^2}{\sigma_{opt, k}^2} \right]} \\ \exp{\left[ - \frac{(d_{NUV, k} - d_{NUV, p}(\theta, t_{k}^{obs}))^2}{\sigma_{NUV, k}^2} \right]},
 \end{multline}
-%where for one combination of $\theta$,
-%\begin{equation}
-%\chi_{c, k}^2 = \frac{(d_{c, k} - d_{c, p}(\theta, t_{k}^{obs}))^2}{\sigma_{c, k}^2}
-%\end{equation}
-%and
-%\begin{equation}
-%Z_{k} = \sqrt[]{2\pi\sigma_{c, k}^2}.
-%\end{equation}
-%Again working in logarithmic probabilities:
-%\begin{equation}
-%\log{(P(d_{k}|\theta, t^{obs}_{k}))} = \sum_{c} - \log{Z_{c,k}} - \sum_{c} \frac{\chi_{c, k}^2}{2}.
-%\end{equation}
-%If we work in logarithmic probabilities, we must then sum over all $k$ galaxies in the GZ2 sample:
-%\begin{equation}
-%\log{(P(\underline{d}|\theta, \underline{t}^{obs}))} = \sum_{c, k} \log{(P(d_{c, k}|\theta, t_{k}^{obs}))}
-%\end{equation}
-%\begin{equation}
-%\log{(P(\underline{d}|\theta,  \underline{t}^{obs}))}  = K - \sum_{c, k} \frac{\chi_{c, k}^2}{2},
-%\end{equation}
-%where K is a constant:
-%\begin{equation}
-%K = - \sum_{c, k} \log{Z_{c, k}},
-%\end{equation}
-%where $c=\{opt, NUV\}$. 
-Again we have assumed that $P(d_{opt}|\theta, t^{obs}_{k})$ and $P(d_{NUV}|\theta, t^{obs}_{k})$ are independent of each other, as with $t$ and $\tau$ in Equation \ref{prior}. As previously we do not believe we can set a sensible prior to these parameters unless we were to investigate a specific quenching mechanism.
 
-Equation \ref{like} gives us the probability of the data \underline{given} a specific model. However what we need is the probability of each combination of $\theta$ values \underline{given} the GZ2 data: $P(\theta|\underline{d}, t^{obs}, w)$, i.e. how likely is a single SFH model given the observed colours of all of the GZ2 galaxies. We can find this by:
+We have assumed that $P(d_{opt}|\theta, t^{obs}_{k})$ and $P(d_{NUV}|\theta, t^{obs}_{k})$ are independent of each other. To obtain the probability of each combination of $\theta$ values \underline{given} the GZ2 data: $P(\theta|\underline{d}, t^{obs})$, i.e. how likely is a single SFH model given the observed colours of a single GZ2 galaxy, {\changed we utilise Bayes' theorem}:
 \begin{equation}\label{big}
-P(\theta|\underline{d}, t,^{obs} w) = \frac{P(\underline{d}|\theta, \underline{t}^{obs})P(\theta | w)}{\int P(\underline{d}|\theta, \underline{t}^{obs})P(\theta | w) d\theta}.
+P(\theta|\underline{d}, t^{obs}) = \frac{P(\underline{d}|\theta, \underline{t}^{obs})P(\theta)}{\int P(\underline{d}|\theta, \underline{t}^{obs})P(\theta) d\theta}.
 \end{equation}
-%where,
-%\begin{equation}
-%P(\underline{d}|\theta, \underline{t}^{obs})P(\theta | w) = \exp{\left[\log{[P(\underline{d}|\theta, \underline{t}^{obs})]} + \log{[P(\theta | w)]}\right]},
-%\end{equation}
+{\changed We assume a flat prior on the model parameters so that:
+\begin{equation}\label{prior}
+P(\theta) =
+\begin{cases}
+1 & \text{if } 0 \leq t_q \leq 13.8 ~  \text{ and } ~ 0 \leq \tau \leq 4\\
+0 & \text{otherwise} \\
+\end{cases}
+\end{equation}}
 
+As the denominator of Equation \ref{big} is a normalisation factor, comparison between likelihoods for two different SFH models (i.e., two different combinations of $\theta = (t_q, \tau)$) is equivalent to a comparison of the numerators. Calculation of $P(\theta|\underline{d}, \underline{t},^{obs} w)$  for any $\theta$ is possible given data for the GZ2 sample (or a sub-sample thereof). Markov Chain Monte Carlo (MCMC; \citealt{MacKay, Dan, GW10}) provides a robust comparison of the likelihoods between $\theta$ values; here we choose a Python implementation of an affine invariant ensemble sampler by \cite{Dan}; \emph{emcee}.
+
+This method allows for a more efficient exploration of the parameter space by avoiding those areas with low likelihood. A large number of `walkers' are started at an initial position where the likelihood is calculated; from there they individually `jump' to a new area of parameter space. If the likelihood in this new area is greater (less) than the original position then the `walkers' accept (reject) this change in position. Any new position then influences the direction of the  `jumps' of other walkers.  This is repeated for the defined number of steps until the `walkers' have found the regions of highest likelihood. The model outlined above has been coded using the \emph{Python} programming language into a package named: \emph{StarfPy} which has been made freely available to download\footnote{Coming soon to a website near you..}. {\changed An example output from this Python package for a single galaxy from the GZ2 sample in the red sequence is shown in Figure \ref{one_example}.}
+
+%StarfPy run on individual galaxies with GLAMDRING
+%Routine sped up by production of a lookup table - induces errors of ~ +-0.05 - see Appendix
+%Individual runs combined by weighting by log prob values (those with p < 0.1 were discarded as 'bad fits') from emcee and each galaxy contributed a fraction dependant on the vote fraction for both smooth and disc parameters
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.45\textwidth]{triangle_t_tau_red_s_1237655504035185152_40000_12_19_06_08_14.pdf}}
+\caption{{\changed Example output from \emph{StarfPy} with GLAMDRING for a galaxy within the red sequence. Contours show the regions of high likelihood for the quenching models described by $\theta = [t_q, \tau]$ and the histograms show the 1D projection along each axis. Solid (dashed) blue lines show the best fit model (with $\pm 1\sigma$) to the galaxy data. The postage stamp image from SDSS is shown in the top right along with the vote fractions for smooth ($p_s$) and disc ($p_d$) from Galaxy Zoo 2.} }
+\label{one_example}
+\end{figure}
+
+In addition to the colours, the GZ2 data provides uniquely powerful measurements of a galaxy's morphology, therefore we utilise the user vote fractions, see Section \ref{class}. 
+%Specifically we consider how smooth-, $p_s$ or disc-like, $p_d$ a galaxy is considered by users. If either of these fractions is over $80\%$ then the galaxy is considered to be in the `clean' smooth or disc sample according to \citet{GZ2}. If we ran the above sampling method on galaxies in either of the \emph{clean} samples, we would lose all the information about the intermediate galaxies and how these contribute to the likelihood of $P(\theta|\underline{d})$. 
+
+It is the intermediate galaxies which are thought to be crucial to the morphological changes between early- and late-type galaxies; if this change is associated with the green valley in any way then these vote fractions contain information we wish to keep in our analysis. It was the consideration of these intermediate galaxies which was excluded from the investigation in S14.
+
+
+We incorporate these GZ2 vote fractions  into our sampling by considering them as weights to the likelihood $P(d_{k}|\theta, t^{obs}_{k})$ to which that galaxy contributes to $P(\underline{d}|\theta, \underline{t}^{obs})$. For example a galaxy which has $p_{s} = 0.9$ should carry more weight in the {\changed overall likelihood} for the smooth model parameters than a galaxy with $p_{s} = 0.1$. 
+
+
+
+
+
+\section{Results}\label{results}
 \begin{figure*}
 \centering{
 \includegraphics[width=0.9\textwidth]{sfr_mass_subsets.pdf}}
@@ -228,17 +211,6 @@ P(\theta|\underline{d}, t,^{obs} w) = \frac{P(\underline{d}|\theta, \underline{t
 \label{sfr_mass_sub}
 \end{figure*}
 
-%The denominator is a mere normalisation factor, therefore when we compare the likelihoods between two different SFH models, i.e. two different combinations of $\theta = (t_{q}, \tau)$ we need only compare the numerator and can also remain in logarithmic probability space. So, given the data from the GZ2 sample, we can calculate $P(\theta|\underline{d}, \underline{t},^{obs} w)$ for all possible $\theta$ values and compare these to determine the most likely values for $\theta$ given the GZ2 data. In order to this robustly, we performed a Markov Chain Monte Carlo (MCMC; \citealt{MacKay, Dan, GW10}) sampling method to cycle through the defined parameter space using a Python implementation of an affine invariant ensemble sampler by \cite{Dan}; \emph{emcee}.
-
-As the denominator of Equation \ref{big} is a normalisation factor, comparison between likelihoods for two different SFH models (i.e., two different combinations of $\theta = (t_q, \tau)$) is equivalent to a comparison of the numerators. Calculation of $P(\theta|\underline{d}, \underline{t},^{obs} w)$  for any $\theta$ is possible given data for the GZ2 sample (or a sub-sample thereof). Markov Chain Monte Carlo (MCMC; \citealt{MacKay, Dan, GW10}) provides a robust comparison of the likelihoods between $\theta$ values; here we choose a Python implementation of an affine invariant ensemble sampler by \cite{Dan}; \emph{emcee}.
-
-This method allows for a speedier exploration of the parameter space by avoiding those areas with low likelihood. A large number of `walkers' are started at an initial position where the likelihood is calculated, from there they individually `jump' to a new area of parameter space. If the likelihood in this new area is greater than the original position then the `walkers' retain this position. This new position then influences the direction of the  `jumps' of other walkers.  This is repeated for the defined number of steps until the `walkers' have found the regions of highest likelihood.
-
-It is expected that those subsets of galaxies with large numbers will rapidly converge the \emph{`walkers'} (see Section \ref{stats}) into the regions of high likelihood without the need to explore the whole parameter space. Conversely the smaller galaxy subsets will allow a full exploration of the parameter space. It is also expected that those subsets of galaxies with narrow ranges of either NUV or optical colours will also cause the \emph{`walkers'} to converge rapidly into the regions of high likelihood without the need to explore the whole of the parameter space. This raises the issue of whether the sampling method is capable of finding multiple likelihood peaks, however the Figures in Section \ref{results} show it is capable of finding multiple peaks in both parameters. 
-
-In addition to the colours, the GZ2 data provides uniquely powerful measurements of a galaxy's morphology, therefore we utilise the user vote fractions, see Section \ref{class}. Specifically we consider how smooth-, $p_s$ or disc-like, $p_d$ a galaxy is considered by users. If either of these fractions is over $80\%$ then the galaxy is considered to be in the `clean' smooth or disc sample according to \citet{GZ2}. 
-
-If we ran the above sampling method on galaxies in either of the \emph{clean} samples, we would lose all the information about the intermediate galaxies and how these contribute to the likelihood of $P(\theta|\underline{d})$. It is the intermediate galaxies which are thought to be crucial to the morphological changes between early- and late-type galaxies; if this change is associated with the green valley in any way then these vote fractions contain information we wish to keep in our analysis. It was the consideration of these intermediate galaxies which was excluded from the investigation in S14.
 \begin{figure*}
 \centering{
 \includegraphics[width=\textwidth]{sfr_mass_colour_diagram.pdf}}
@@ -246,30 +218,6 @@ If we ran the above sampling method on galaxies in either of the \emph{clean} sa
 \label{sfr_mass_col}
 \end{figure*}
 
-%The SFR versus time for four model galaxies with various star formation histories are shown in the middle panel of this diagram.The dashed line shows the relationship between the sSFR and time from \citet{Peng} which was used to constrain these models at $t=t_{quench}$. The evolution of each of these four model galaxies across the SFR-mass diagram (from $t=0~\rm{Gyr}$) and optical-NUV colour-colour diagram (from $t=t_q$) are shown in the left and right panels respectively; with each point representing a time step of $t=0.5~\rm{Gyr}$. These plots show how the models are capable of reproducing the observed properties of the GZ2 sample of galaxies.
-We incorporate these GZ2 vote fractions  into our sampling by considering them as weights to the likelihood $P(d_{k}|\theta, t^{obs}_{k})$ to which that galaxy contributes to $P(\underline{d}|\theta, \underline{t}^{obs})$. For example a galaxy which has $p_{s} = 0.9$ should carry more weight in the likelihoods for the model parameters to describe smooth galaxies than a galaxy with $p_{s} = 0.1$. Therefore the likelihood can now be thought of as:
-\begin{equation}
-P(\underline{d}|\theta, \underline{t}^{obs}) = \prod_{k} p_{k} P(d_{k}|\theta, t_{k}^{obs}),
-\end{equation}
-
-where $p_{k}$ is either $p_{s}$ or $p_{d}$ for a single galaxy, k. We can then run the code with the GZ2 sample along with firstly, the $p_{s}$ vote fractions to find the most likely parameters for $\theta$ for smooth-like galaxies and secondly, with the $p_{d}$ vote fractions to find the most likely parameters for $\theta$ for disc-like galaxies. However, we find it more convenient to perform our sampling across four parameters: $\theta = (t_{s}, \tau_{s}, t_{d}, \tau_{d}) = (\theta_{s}, \theta_{d})$ and our likelihood function becomes:
-\begin{equation}
-P(\underline{d}|\theta, \underline{t}^{obs}) = \prod_{k} \left [p_{s, k} P(d_{k}|\theta_{s}, t_{k}^{obs}) + p_{d, k} P(d_{k}|\theta_{d}, t_{k}^{obs}) \right].
-\end{equation}
-%or still working in logarithmic space:
-%\begin{equation}
-%\log \left[ P(\underline{d}|\theta, \underline{t}^{obs}) \right] = \sum_{k} \log \left [p_{s, k} P(d_{k}|\theta_{s}, t_{k}^{obs}) + p_{d, k} P(d_{k}|\theta_{d}, t_{k}^{obs}) \right]. 
-%\end{equation}
-The \emph{emcee} algorithm searches through the $\theta$ parameter space to find the region that maximises $P(\theta|\underline{d})$ to return four parameter values for $t_{s}, \tau_{s}, t_{d}$ and $\tau_{d}$. If we find that $\theta_{s} ~\sim~ \theta_{d}$ for the green valley galaxies then we can conclude that this area of the colour-magnitude diagram consists of a single population that all have a similar SFH. 
-
-The model outlined above has been coded using the \emph{Python} programming language into a package named: \emph{StarfPy} which has been made freely available to download\footnote{Coming soon to a website near you..}.
-
-%StarfPy run on individual galaxies with GLAMDRING
-%Routine sped up by production of a lookup table - induces errors of ~ +-0.05 - see Appendix
-%Individual runs combined by weighting by log prob values (those with p < 0.1 were discarded as 'bad fits') from emcee and each galaxy contributed a fraction dependant on the vote fraction for both smooth and disc parameters
-
-
-\section{Results}\label{results}
 
 Figure \ref{sfr_mass_sub} the SFR versus the stellar mass for the observed GZ2 sample and split this into blue cloud, green valley and red sequence as well as into the `clean' disc and smooth galaxy samples (with GZ2 vote fractions of $p_d \geq 0.8$ and $p_s \geq 0.8$ respectively) in Figure \ref{sfr_mass_sub}. The green valley galaxies are indeed a population which have either left, or begun to leave, the SFR-mass relation or have some residual star formation still occurring. 
 
