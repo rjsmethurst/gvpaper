@@ -17,13 +17,15 @@
 
 \begin{document}
 \title[The Star Formation History of the Green Valley]{Galaxy Zoo: Evidence for Diverse Star Formation Histories through the Green Valley}
-\author[Smethurst et al. 2014]{R. ~J. ~Smethurst,$^1$ C. ~J. ~Lintott,$^{1,2}$ B. ~D. ~Simmons,$^{1}$ K. ~Schawinski,$^{3}$ \newauthor K.~L.~Masters,$^{4}$ K. ~W. ~Willett,$^{5}$, T. ~Melvin,$^{4}$ R. ~A. ~Skibba$~^{6}$
+\author[Smethurst et al. 2014]{R. ~J. ~Smethurst,$^1$ C. ~J. ~Lintott,$^{1,2}$ B. ~D. ~Simmons,$^{1}$ K. ~Schawinski,$^{3}$ \newauthor K.~L.~Masters,$^{4}$ K. ~W. ~Willett,$^{5}$ P. ~J. ~Marshall,$^{6,1}$ S. ~Bamford,$^{7}$ T. ~Melvin,$^{4}$ \newauthor R. ~A. ~Skibba$~^{8}$
 \\ $^1$ Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK 
 \\ $^2$ Adler Planetarium, 1300 S Lake Shore Drive, Chicago, IL, 60605, USA 
 \\ $^3$ Institute for Astronomy, Department of Physics, ETH Zurich, Wolfgang-Pauli Strasse 27, CH-8093 Zurich, Switzerland 
 \\ $^4$ Institute of Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Barnaby Road, Portsmouth, PO1 3FX, UK 
 \\ $^5$ School of Physics and Astronomy, University of Minnesota, 116 Church St SE, Minneapolis, MN 55455, USA
-\\ $^6$ Center for Astrophysics and Space Sciences, University of California San Diego, 9500 Gilman Drive, La Jolla, CA 92093, USA}
+\\ $^6$ Kavli Institute for Particle Astrophysics and Cosmology, Stanford University, 452 Lomita Mall, Stanford, CA 95616, USA
+\\ $^7$ School of Physics and Astronomy, The University of Nottingham, University Park, Nottingham, NG7 2RD, UK
+\\ $^8$ Center for Astrophysics and Space Sciences, University of California San Diego, 9500 Gilman Drive, La Jolla, CA 92093, USA}
 
 \maketitle
 
@@ -137,6 +139,14 @@ sSFR(m,t) = 2.5 \left( \frac{m}{10^{10} M_{\odot}} \right)^{-0.1} \left(\frac{t}
 \end{equation}
 Beyond $z \sim 2$ the characteristic SFR flattens and is roughly constant back to $z\sim6$. The cause for this change is not well understood but can be seen across similar observational data \citep{Peng, Gonzalez, Beth}. Motivated by these observations, the relation defined in \citet{Peng} is taken up to a cosmic time of $t=3~\rm{Gyr} (z \sim 2.3)$ and prior to this a constant average SFR is assumed (see Figure \ref{sfr_mass_col}). At the point of quenching, $t_{q}$, the models are defined to have a SFR which lies on this relationship for the sSFR, for a galaxy with mass, $m = 10^{10.27} M_{\odot}$ (the mean mass of the GZ2 sample; see Figure \ref{sfr_mass_col}.
  
+ \begin{figure}
+\centering{
+\includegraphics[width=0.44\textwidth]{colours.pdf}}
+\caption{Quenching timescale $\tau$ versus quenching onset time $t$ in all three panels. Colour shadings show model predictions of the $u-r$ optical colour (top panel), $NUV-u$ colour (middle panel), and star formation rate in $M_\odot \rm{~yr}^{-1}$ (lower panel), at $t^{obs} = 12.8~\rm{Gyr}$, the mean `observed' time of the GZ2 sample. The combination of optical and NUV colours is a sensitive measure of the $\theta = [t_q, \tau]$ parameter space. Note that all models with $t > 12.8$ \rm{Gyr} are effectively un-quenched. The 'kink' in the bottom panel is due to the assumption that the sSFR is constant prior to $t \sim 3~\rm{Gyr}$ ($z\sim 2.2$).}
+\label{pred}
+\end{figure}
+
+ 
 Under these assumptions the average SFR of our models will result in a lower value than the relation defined in \citet{Peng} at all cosmic times with this treatment; each galaxy only resides on the `main sequence' at the point of quenching. However galaxies cannot remain on the `main sequence' from early to late times throughout their entire lifetimes given the unphysical stellar masses and SFRs this would result in at the current epoch in the local Universe \citep{Beth, Heinis14}. If we were to include prescriptions for no quenching, starbursts, mergers, AGN etc. into our models we would improve on our reproduction of the average SFR across cosmic time; however we chose to initially focus on the most simple model possible.
 
 Once this evolutionary SFR is obtained, it is convolved with the \citet{BC03} population synthesis models to generate a model SED at each time step. The observed features of galaxy spectra can be modelled using simple stellar population techniques which sum the contributions of individual, coeval, equal-metallicity stars. The accuracy of these predictions depends on the completeness of the input stellar physics. Comprehensive knowledge is therefore required of (i) stellar evolutionary tracks and (ii) the initial mass function (IMF) to synthesise a stellar population accurately. These stellar population synthesis (SPS) models are an extremely well explored (and often debated) area of astrophysics \citep{Maraston05, Eminian08, CGW09, Falk09, Chen10, Kriek10, MRC11, Mel12}. In this investigation we chose to utilise the \citet{BC03} \emph{GALEXEV} SPS models along with a Chabrier \citep{Chab03} IMF, across a large wavelength range ($0.0091 < ~\lambda~\rm{[\mu m]}~ < 160 $), at solar metallically (m62 in the \citet{BC03} models), across cosmic time.
@@ -148,25 +158,27 @@ Fluxes from stars younger than $3~$Myr in the SPS model are suppressed to mimic 
 Figure \ref{pred} shows these predicted optical and NUV colours at a time of $t^{obs} = 12.8 ~\rm{Gyr}$ (the average observed time of the Galaxy Zoo 2 sample, $z \sim 0.076$) provided by the exponential SFH model. These predicted colours will be referred to as $d_{c,p}(t_{q}, \tau, t^{obs})$, where c=\{opt,NUV\} and p = predicted. The SFR at a time of $t^{obs}=12.8~\rm{Gyr}$ is also shown in Figure \ref{pred} to compare how this correlates with the predicted colours. The $u-r$ predicted colour shows an immediate correlation with the SFR, however the $NUV-u$ colour is more sensitive to the value of $\tau$ and so is ideal for tracing any recent star formation in a population . At small $\tau$ (rapid quenching timescales) the $NUV-u$ colour is insensitive to $t_{q}$, whereas at large $\tau$ (slow quenching timescales) the colour is very sensitive to $t_{q}$. Together the two colours are ideal for tracing the effects of $t_{q}$ and $\tau$ in a population. 
 
 
-\begin{figure}
-\centering{
-\includegraphics[width=0.44\textwidth]{colours.pdf}}
-\caption{Quenching timescale $\tau$ versus quenching onset time $t$ in all three panels. Colour shadings show model predictions of the $u-r$ optical colour (top panel), $NUV-u$ colour (middle panel), and star formation rate in $M_\odot \rm{~yr}^{-1}$ (lower panel), at $t^{obs} = 12.8~\rm{Gyr}$, the mean `observed' time of the GZ2 sample. The combination of optical and NUV colours is a sensitive measure of the $\theta = [t_q, \tau]$ parameter space. Note that all models with $t > 12.8$ \rm{Gyr} are effectively un-quenched. The 'kink' in the bottom panel is due to the assumption that the sSFR is constant prior to $t \sim 3~\rm{Gyr}$ ($z\sim 2.2$).}
-\label{pred}
-\end{figure}
 
 
 \subsection{Bayesian Techniques}\label{stats}
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.5\textwidth]{triangle_t_tau_red_s_1237655504035185152_40000_14_16_06_08_14.pdf}}
+\caption{{\changed Example output from \emph{StarfPy} for a galaxy within the red sequence. The contours show the positions of the `walkers' in the Markov Chain (which are analogous to the areas of high probability) for the quenching models described by $\theta = [t_q, \tau]$ and the histograms show the 1D projection along each axis. Solid (dashed) blue lines show the best fit model (with $\pm 1\sigma$) to the galaxy data. The postage stamp image from SDSS is shown in the top right along with the vote fractions for smooth ($p_s$) and disc ($p_d$) from Galaxy Zoo 2.} }
+\label{one_example}
+\end{figure}
+
 In order to achieve robust conclusions we conduct a a fully Bayesian analysis \citep{Sivia, MacKay} of our SFH models in comparison to the observed GZ2 sample data. This approach requires consideration of all possible combinations of $\theta \equiv (t_{q}, \tau)$. Assuming that all galaxies formed at $t=0~\rm{Gyr}$ with an initial burst of star formation, we can assume that the `age' of each galaxy in the GZ2 sample is equivalent to an observed time, $t^{obs}_{k}$ (see Section \ref{class}). We then use this  `age' to calculate the predicted model colours at this cosmic time for a given combination of $\theta$: $d_{c,p}(\theta, t^{obs}_{k})$ for both optical and NUV $(c={opt,NUV})$ colours. We can now directly compare our model colours with the observed GZ2 galaxy colours, so that for a single galaxy k with optical ($u-r$) colour, $d_{opt, k}$ and NUV ($NUV-u$) colour, $d_{NUV,k}$, the {\changed likelihood $P(d_{k}|\theta, t^{obs}_{k})$ is}:
 
 \begin{multline}\label{like}
 P(d_{k}|\theta, t^{obs}_{k}) = \frac{1}{\sqrt{2\pi\sigma_{opt, k}^2}}\frac{1}{\sqrt{2\pi\sigma_{NUV, k}^2}} \\ \exp{\left[ - \frac{(d_{opt, k} - d_{opt, p}(\theta, t_{k}^{obs}))^2}{\sigma_{opt, k}^2} \right]} \\ \exp{\left[ - \frac{(d_{NUV, k} - d_{NUV, p}(\theta, t_{k}^{obs}))^2}{\sigma_{NUV, k}^2} \right]},
 \end{multline}
 
-We have assumed that $P(d_{opt}|\theta, t^{obs}_{k})$ and $P(d_{NUV}|\theta, t^{obs}_{k})$ are independent of each other. To obtain the probability of each combination of $\theta$ values \underline{given} the GZ2 data: $P(\theta|\underline{d}, t^{obs})$, i.e. how likely is a single SFH model given the observed colours of a single GZ2 galaxy, {\changed we utilise Bayes' theorem}:
-\begin{equation}\label{big}
-P(\theta|\underline{d}, t^{obs}) = \frac{P(\underline{d}|\theta, \underline{t}^{obs})P(\theta)}{\int P(\underline{d}|\theta, \underline{t}^{obs})P(\theta) d\theta}.
-\end{equation}
+We have assumed that $P(d_{opt}|\theta, t^{obs}_{k})$ and $P(d_{NUV}|\theta, t^{obs}_{k})$ are independent of each other and that the errors on the observed colours are also independent. To obtain the probability of each combination of $\theta$ values \underline{given} the GZ2 data: $P(\theta|\underline{d}, t^{obs})$, i.e. how likely is a single SFH model given the observed colours of a single GZ2 galaxy, {\changed we utilise Bayes' theorem}:
+{\changed \begin{equation}\label{big}
+P(\theta|d_k) = \frac{P(d_k|\theta, t^{obs})P(\theta)}{\int P(d_k |\theta, t^{obs})P(\theta) d\theta}.
+\end{equation}}
 {\changed We assume a flat prior on the model parameters so that:
 \begin{equation}\label{prior}
 P(\theta) =
@@ -176,40 +188,16 @@ P(\theta) =
 \end{cases}
 \end{equation}}
 
-As the denominator of Equation \ref{big} is a normalisation factor, comparison between likelihoods for two different SFH models (i.e., two different combinations of $\theta = (t_q, \tau)$) is equivalent to a comparison of the numerators. Calculation of $P(\theta|\underline{d}, \underline{t},^{obs} w)$  for any $\theta$ is possible given data for the GZ2 sample (or a sub-sample thereof). Markov Chain Monte Carlo (MCMC; \citealt{MacKay, Dan, GW10}) provides a robust comparison of the likelihoods between $\theta$ values; here we choose a Python implementation of an affine invariant ensemble sampler by \cite{Dan}; \emph{emcee}.
-
-This method allows for a more efficient exploration of the parameter space by avoiding those areas with low likelihood. A large number of `walkers' are started at an initial position where the likelihood is calculated; from there they individually `jump' to a new area of parameter space. If the likelihood in this new area is greater (less) than the original position then the `walkers' accept (reject) this change in position. Any new position then influences the direction of the  `jumps' of other walkers.  This is repeated for the defined number of steps until the `walkers' have found the regions of highest likelihood. The model outlined above has been coded using the \emph{Python} programming language into a package named: \emph{StarfPy} which has been made freely available to download\footnote{{\changed github.com/rjsmethurst/starfpy}}. {\changed An example output from this Python package for a single galaxy from the GZ2 sample in the red sequence is shown in Figure \ref{one_example}.}
-
-%StarfPy run on individual galaxies with GLAMDRING
-%Routine sped up by production of a lookup table - induces errors of ~ +-0.05 - see Appendix
-%Individual runs combined by weighting by log prob values (those with p < 0.1 were discarded as 'bad fits') from emcee and each galaxy contributed a fraction dependant on the vote fraction for both smooth and disc parameters
-
-\begin{figure}
-\centering{
-\includegraphics[width=0.45\textwidth]{triangle_t_tau_red_s_1237655504035185152_40000_12_19_06_08_14.pdf}}
-\caption{{\changed Example output from \emph{StarfPy} with GLAMDRING for a galaxy within the red sequence. Contours show the regions of high likelihood for the quenching models described by $\theta = [t_q, \tau]$ and the histograms show the 1D projection along each axis. Solid (dashed) blue lines show the best fit model (with $\pm 1\sigma$) to the galaxy data. The postage stamp image from SDSS is shown in the top right along with the vote fractions for smooth ($p_s$) and disc ($p_d$) from Galaxy Zoo 2.} }
-\label{one_example}
-\end{figure}
-
-In addition to the colours, the GZ2 data provides uniquely powerful measurements of a galaxy's morphology, therefore we utilise the user vote fractions, see Section \ref{class}. 
-%Specifically we consider how smooth-, $p_s$ or disc-like, $p_d$ a galaxy is considered by users. If either of these fractions is over $80\%$ then the galaxy is considered to be in the `clean' smooth or disc sample according to \citet{GZ2}. If we ran the above sampling method on galaxies in either of the \emph{clean} samples, we would lose all the information about the intermediate galaxies and how these contribute to the likelihood of $P(\theta|\underline{d})$. 
-
-It is the intermediate galaxies which are thought to be crucial to the morphological changes between early- and late-type galaxies; if this change is associated with the green valley in any way then these vote fractions contain information we wish to keep in our analysis. It was the consideration of these intermediate galaxies which was excluded from the investigation in S14.
-
-
-We incorporate these GZ2 vote fractions  into our sampling by considering them as weights to the likelihood $P(d_{k}|\theta, t^{obs}_{k})$ to which that galaxy contributes to $P(\underline{d}|\theta, \underline{t}^{obs})$. For example a galaxy which has $p_{s} = 0.9$ should carry more weight in the {\changed overall likelihood} for the smooth model parameters than a galaxy with $p_{s} = 0.1$. 
-
-
-
-
-
-\section{Results}\label{results}
 \begin{figure*}
 \centering{
 \includegraphics[width=0.9\textwidth]{sfr_mass_subsets.pdf}}
-\caption{Star formation rate versus stellar mass diagrams show how the different populations of galaxies  (top row, left to right: all galaxies, GZ2 `clean' disc and smooth galaxies; bottom row, left to right: blue cloud, green valley and red sequence galaxies) contribute to the SFR vs. mass relation (from \citet{Peng}, shown by the solid blue line with 0.3 dex scatter by the dashed lines) of star formation. Based on positions in these diagrams, the green valley does appear to be a transitional population between the blue cloud and the red sequence. Detailed analysis of star formation histories can elucidate the nature of the different populations' pathways through the green valley. The clean smooth and disc samples are described in \ref{class}.}
+\caption{Star formation rate versus stellar mass diagrams show how the different populations of galaxies  (top row, left to right: all galaxies, GZ2 `clean' disc and smooth galaxies; bottom row, left to right: blue cloud, green valley and red sequence galaxies) contribute to the star forming sequence (from \citet{Peng}, shown by the solid blue line with 0.3 dex scatter by the dashed lines) of star formation. Based on positions in these diagrams, the green valley does appear to be a transitional population between the blue cloud and the red sequence. Detailed analysis of star formation histories can elucidate the nature of the different populations' pathways through the green valley. The clean smooth and disc samples are described in \ref{class}.}
 \label{sfr_mass_sub}
 \end{figure*}
+
+As the denominator of Equation \ref{big} is a normalisation factor, comparison between likelihoods for two different SFH models (i.e., two different combinations of $\theta = (t_q, \tau)$) is equivalent to a comparison of the numerators. Calculation of $P(\theta|\underline{d}, \underline{t},^{obs} w)$  for any $\theta$ is possible given data for the GZ2 sample (or a sub-sample thereof). Markov Chain Monte Carlo (MCMC; \citealt{MacKay, Dan, GW10}) provides a robust comparison of the likelihoods between $\theta$ values; here we choose a Python implementation of an affine invariant ensemble sampler by \cite{Dan}; \emph{emcee}.
+
+This method allows for a more efficient exploration of the parameter space by avoiding those areas with low likelihood. A large number of `walkers' are started at an initial position where the likelihood is calculated; from there they individually `jump' to a new area of parameter space. If the likelihood in this new area is greater (less) than the original position then the `walkers' accept (reject) this change in position. Any new position then influences the direction of the  `jumps' of other walkers.  {\changed This is repeated for the defined number of steps after an initial 'burn-in' phase. \emph{emcee} returns the positions of these `walkers', which are analogous to the regions of high probability in the model parameter space.} The model outlined above has been coded using the \emph{Python} programming language into a package named: \emph{StarfPy} which has been made freely available to download\footnote{{\changed github.com/rjsmethurst/starfpy}}. {\changed An example output from this Python package for a single galaxy from the GZ2 sample in the red sequence is shown in Figure \ref{one_example}. The contours show the positions of the `walkers' in the Markov Chain which are analogous to the areas of high probability.}
 
 \begin{figure*}
 \centering{
@@ -218,10 +206,22 @@ We incorporate these GZ2 vote fractions  into our sampling by considering them a
 \label{sfr_mass_col}
 \end{figure*}
 
+{\changed We wish to consider the model parameters for the populations of galaxies across the colour magnitude diagram for both smooth and disc galaxies, therefore we run the \emph{StarfPy} package on each galaxy in the GZ2 sample. This was extremely time consuming; for each combination of $\theta$ values which \emph{emcee} proposes, a new SFH must be built prior to convolving it with the BC03 SPS models at the observed age and then predicted colours calculated from the resultant SED. For a single galaxy this could take up to 2 hours on a typical desktop machine for long Markov Chains. A look-up table was therefore generated at $50 ~t^{obs}$ for $100 ~t_{quench}$ and $100 ~\tau$ values; this was then interpolated over for a given observed galaxy's age and proposed $\theta$ values at each step in the Markov Chain. This ensured that a single galaxy took 2 minutes to run on a typical desktop machine. This interpolation was found to incorporate an error of $\pm 0.1$ into the quoted best fit $\theta$ values (see Appendix section \ref{lookup} for further information). 
 
-Figure \ref{sfr_mass_sub} the SFR versus the stellar mass for the observed GZ2 sample and split this into blue cloud, green valley and red sequence as well as into the `clean' disc and smooth galaxy samples (with GZ2 vote fractions of $p_d \geq 0.8$ and $p_s \geq 0.8$ respectively) in Figure \ref{sfr_mass_sub}. The green valley galaxies are indeed a population which have either left, or begun to leave, the SFR-mass relation or have some residual star formation still occurring. 
+Using this lookup table, each of the $126,316$ total galaxies in the GZ2 sample was run through \emph{StarfPy} on multiple cores of a computer cluster to obtain the Markov Chain positions (analogous to $P(\theta|d_k)$) for each galaxy, $k$ (see Figure \ref{one_example}). In each case the Markov Chain consisted of $100$ `walkers' which took $400$ steps in the `burn-in' phase and $400$ steps thereafter at which point the acceptance fraction was checked to be within the range $0.25 < f_{acc} < 0.5$ (which was true in all cases). These individual galaxy positions are then combined to give the areas of high probability in the model parameter space across a given population (e.g. the green valley). We compute this by first discarding positions with a corresponding probability of $P(\theta|d_k) < 0.2$ in order to exclude galaxies which are not well fit by the quenching model; for example blue cloud galaxies which are still star forming will be poorly fit by a quenching model. The positions are then binned and weighted by their corresponding probability $P(\theta|d_k)$. The GZ2 data also provides uniquely powerful continuous measurements of a galaxy's morphology, therefore we utilise the user vote fractions to obtain separate model parameters for both smooth and disc galaxies. This is obtained by also weighting by the morphology vote fraction when the binned positions are summated, as follows:
+\begin{equation}\label{sum}
+P(\theta_{disc} | \underline{d}) = \frac{1}{Z} \sum_k p_{disc, k} P(\theta|d_k),
+\end{equation}
+and
+\begin{equation}\label{sum2}
+P(\theta_{smooth} | \underline{d}) = \frac{1}{Z} \sum_k p_{smooth, k} P(\theta|d_k), 
+\end{equation}
+where Z is a normalisation constant. For example, the galaxy shown in Figure \ref{one_example} would contribute almost evenly to both the smooth and disc parameters by the vote fractions. Since galaxies with similar vote fractions contain both a bulge and disc component, this method is effective in incorporating intermediate galaxies which are thought to be crucial to the morphological changes between early- and late-type galaxies. It was the consideration of these intermediate galaxies which was excluded from the investigation by S14.}
 
-Interestingly, when we compare those galaxies which reside on the main sequence we find that the tail ends of this population (the low and high mass  galaxies) are primarily made up of smooth galaxies as opposed to disc galaxies.
+
+\section{Results}\label{results}
+
+Figure \ref{sfr_mass_sub} shows the SFR versus the stellar mass for the observed GZ2 sample which has been split into blue cloud, green valley and red sequence populations as well as into the `clean' disc and smooth galaxy samples (with GZ2 vote fractions of $p_d \geq 0.8$ and $p_s \geq 0.8$ respectively). The green valley galaxies are indeed a population which have either left, or begun to leave, the SFR-mass relation or have some residual star formation still occurring. Interestingly, when we compare those galaxies which reside on the star forming sequence we find that the tail ends of this population (the low and high mass  galaxies) are primarily made up of smooth galaxies as opposed to disc galaxies.
 
 %\begin{figure*}
 %\centering{
@@ -230,27 +230,25 @@ Interestingly, when we compare those galaxies which reside on the main sequence 
 %\label{sfr_mass_evo}
 %\end{figure*}
 
-The left panel in Figure \ref{sfr_mass_col} shows how well our SFH models reproduce the observed relationship between the SFR and the mass of a galaxy, including how at the time of quenching they reside on the SF vs. mass relationship shown by the solid black line for a galaxy of mass, $M = 10^{10.27} M_{\odot}$.  %We can also see in Figure \ref{sfr_mass_evo} how this SFR vs. mass diagram evolves with cosmic time according to our model predictions. We expect to not reproduce the relationship between the SFR and mass (as shown by the dashed lines from \citealt{Peng} in all panels) with our models as they focus entirely on quenched galaxies. However we can see how our model predicts the build up of galaxies below the SFR vs. mass relation for star forming galaxies across cosmic time so that by the current epoch ($t\sim13.8~\rm{Gyr}$ in the top middle panel of Figure \ref{sfr_mass_evo}) we can see that it provides a good match to that observed in the GZ2 sample (top left panel of Figure \ref{sfr_mass_evo}).
+The left panel in Figure \ref{sfr_mass_col} shows how well the quenching models reproduce the observed relationship between the SFR and the mass of a galaxy, including how at the time of quenching they reside on the star forming sequence shown by the solid black line for a galaxy of mass, $M = 10^{10.27} M_{\odot}$.  %We can also see in Figure \ref{sfr_mass_evo} how this SFR vs. mass diagram evolves with cosmic time according to our model predictions. We expect to not reproduce the relationship between the SFR and mass (as shown by the dashed lines from \citealt{Peng} in all panels) with our models as they focus entirely on quenched galaxies. However we can see how our model predicts the build up of galaxies below the SFR vs. mass relation for star forming galaxies across cosmic time so that by the current epoch ($t\sim13.8~\rm{Gyr}$ in the top middle panel of Figure \ref{sfr_mass_evo}) we can see that it provides a good match to that observed in the GZ2 sample (top left panel of Figure \ref{sfr_mass_evo}).
 
 %The contour plots in Figures \ref{all}-\ref{blue_c_clean} show the regions of high likelihood for the SFH model parameters $\theta = (t, \tau)$ for both smooth- and disc-like galaxies (left and right panels respectively) when considering the different subsets of the galaxies in the GZ2 sample. These plots were produced by \emph{Starfpy} using the output of the MCMC sampling method outlined in Section \ref{stats}. A `burn-in' of 100 steps was utilised initially and then run until the `walkers' had converged to one or more likelihoods peaks. The histograms show the distribution for the individual parameters and are normalised to the same value across all the Figures in this Section. The colours in the background are provided as a reference to the predicted SFR at the average look-back time of the GZ2 sample ($t^{obs}=12.8~\rm{Gyr}$, see Figure \ref{pred}). 
 
-We consider how these areas of highest likelihood for each parameter change when we consider different subsets of the GZ2 sample.
+{\changed These models were implemented in the \emph{StarfPy} package to produce Figures \ref{red_s}, \ref{gv} \& \ref{blue_c} for the red sequence, green valley and blue cloud populations of smooth and disc galaxies respectively.} In this Section we refer to rapid, intermediate and slow quenching timescales which correspond to ranges of {\changed $\tau ~\rm{[Gyr]} < 1.0$, $1.0 < \tau ~\rm{[Gyr]} < 2.0$ and $\tau ~\rm{[Gyr]} > 2.0$} respectively. 
 
-In this Section we refer to rapid, intermediate and slow quenching timescales which correspond to ranges of $0.0 < \tau ~\rm{[Gyr]} < 1.0$, $1.0 < \tau ~\rm{[Gyr]} < 2.0$ and $2.0 < \tau ~\rm{[Gyr]} < 3.0$ respectively. 
 
 
 \subsection{Red Sequence Galaxies}\label{rs}
-
 \begin{figure*}
 \includegraphics[width=0.4975\textwidth]{red_smooth.pdf}
 \includegraphics[width=0.4975\textwidth]{red_disc.pdf}
 \caption[8pt]{Red Sequence.}
 \label{red_s}
 \end{figure*}
-
 Those galaxies defined to be in the optical red sequence (see Figure \ref{red_s}) show a prevalence for intermediate quenching timescales at early times for the smooth-like galaxies and slow quenching timescales for the disc-like galaxies; again confirming the results found by S14. The areas of high likelihood for the disc-like galaxies occupy areas that also have some residual star formation occurring after evolving with very slow quenching timescales, suggesting that the disc galaxies which make up the red sequence seem to reside at its edge, on the border with the green valley. 
 
 For the smooth parameters in the left panel of Figure \ref{red_s} we also have high likelihood for slow quenching timescales at very early times. Perhaps this is the influence of intermediate galaxies (with $p_s \sim p_d \sim 0.5$), hence why similar high likelihood areas exist for both the smooth-like and disc-like galaxies. Considering there are far more of these intermediate galaxies than those that are definitively early-types (see Table \ref{subs}) these galaxies have overwhelmed the likelihoods creating a bimodality. This is also the case for the disc-like galaxies suggesting that there is still a morphological bimodality in both populations in the red sequence.
+
 
 In Figure \ref{red_s_clean} we try to remove the influence from these intermediate galaxies; the Figure shows the SFH parameters but only for those galaxies defined to be both in the optical red sequence and the GZ2 `clean' samples (i.e. $p_d \geq 0.8$ and $p_s \geq 0.8$). This enables us to disentangle which galaxies are contributing to which areas of high likelihood in Figure \ref{red_s}. We can then see that the typical clean, smooth, red sequence galaxy has undergone a SFH with an intermediate quench at various early times, resulting in a very low current SFR. These are therefore the typical \emph{`red and dead'} galaxies expected to be found in the red sequence. However, there is still only a small amount of likelihood for rapid quenching timescales ($\tau < 1.0~\rm{Gyr}$; the early-type galaxies tend to favour a intermediate quenching timescale instead), however the narrow behaviour of this contour at $t\sim4~\rm{Gyr} (z\sim2)$ should not be taken as evidence that this rapid quenching only occurs at this specific cosmic time. 
 
@@ -259,6 +257,7 @@ More likely is that the `walkers' have been overwhelmed by the sheer number of g
 What has disappeared from the parameter likelihood space is the preference for slow quenching at very early times, this suggests that it is the intermediate galaxies with $0.5 < p_s < 0.8$ which were contributing to this region of likelihood. These galaxies are those whose morphology cannot easily be distinguished or deliberated either because it is at a large distance or because it is an S0 galaxy whose morphology can be deliberated by different users in different ways. \citet{GZ2} find that the S0 galaxies expertly classified by \citet{NA10} are more commonly classified as ellipticals by GZ2 users have a significant tail to high disc vote fractions, giving a possible explanation as to the origin of this area of likelihood when the intermediate galaxies are included in the analysis.
 
 Similarly we also find in Figures \ref{red_s} and \ref{red_s_clean} that there is no likelihood in the parameter space for smooth galaxies at $t \ga 8~\rm{Gyr}$ ($z\sim0.66$) and minimal likelihood for $t \ga 6~\rm{Gyr}$ ($z\sim1$). This suggests that since these smooth galaxies quench at either rapid or intermediate timescales before these times, that the majority of them reside on the red sequence by $t \ga 8~\rm{Gyr}$. This is consistent with the findings of \citet{Im02} who, using data from the Deep Groth Strip Survey (GSS), found that the majority of elliptical galaxies at the current epoch ($\ga 70\%$) already existed at $z\sim1$ and have not undergone any dramatic evolution since then. 
+
 
 We can also see the influence from removing the intermediate galaxies on the likelihoods for the disc parameters in the right hand panel of Figure \ref{red_s_clean}; we no longer have a bimodal distribution, instead one that clearly favours very slow quenching at relatively early times. However we do still have a tail towards a preference for more rapid quenching at more recent times, there is very little with $\tau < 1.0~\rm{Gyr}$ suggesting that disc galaxies do not make it to the red sequence via these rapid mechanisms.
 
