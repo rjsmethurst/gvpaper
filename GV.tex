@@ -11,8 +11,10 @@
 %%%%%%%%%%%%%%%%%%%%
 % For changes since the old draft describing the peak data - to ones describing runs on single galaxies with GLAMDRING.
 %%%%%%%%%%%%%%%%%%%%
-\definecolor{titlecol}{rgb}{1,0,0}
+\definecolor{titlecol}{rgb}{0,0,0}
 \def\changed    {\color{titlecol} }
+\definecolor{change}{rgb}{0,0,1}
+\def\newchange {\color{change} }
 \def\starfpy {\textsc{StarfPy}}
 
 
@@ -216,15 +218,21 @@ This method allows for a more efficient exploration of the parameter space by av
 
 {\changed We wish to consider the model parameters for the populations of galaxies across the colour magnitude diagram for both smooth and disc galaxies, therefore we run the \starfpy ~package on each galaxy in the GZ2 sample. This was extremely time consuming; for each combination of $\theta$ values which \emph{emcee} proposes, a new SFH must be built, prior to convolving it with the BC03 SPS models at the observed age and then predicted colours calculated from the resultant SED. For a single galaxy this takes up to 2 hours on a typical desktop machine for long Markov Chains. A look-up table was therefore generated at $50 ~t^{obs}$, for $100 ~t_{quench}$ and $100 ~\tau$ values; this was then interpolated over for a given observed galaxy's age and proposed $\theta$ values at each step in the Markov Chain. This ensured that a single galaxy took 2 minutes to run on a typical desktop machine. This interpolation was found to incorporate an error of $\pm 0.1$ into the quoted best fit $\theta$ values (see Appendix section \ref{lookup} for further information). 
 
-Using this lookup table, each of the $126,316$ total galaxies in the GZ2 sample was run through \starfpy ~on multiple cores of a computer cluster to obtain the Markov Chain positions (analogous to $P(\theta_k|d_k)$) for each galaxy, $k$ (see Figure \ref{one_example}). In each case the Markov Chain consisted of $100$ `walkers' which took $400$ steps in the `burn-in' phase and $400$ steps thereafter, at which point the MCMC contouracceptance fraction was checked to be within the range $0.25 < f_{acc} < 0.5$ (which was true in all cases). These individual galaxy positions are then combined to give the areas of high probability in the model parameter space across a given population (e.g. the green valley). We compute this by first discarding positions with a corresponding probability of $P(\theta_k|d_k) < 0.2$ in order to exclude galaxies which are not well fit by the quenching model; for example blue cloud galaxies which are still star forming will be poorly fit by a quenching model. The positions are then binned and weighted by their corresponding logarithmic probability $\log [P(\theta_k|d_k)]$. The GZ2 data also provides uniquely powerful continuous measurements of a galaxy's morphology, therefore we utilise the user vote fractions to obtain separate model parameters for both smooth and disc galaxies. This is obtained by also weighting by the morphology vote fraction when the binned positions are summated, as follows:
-\begin{equation}\label{sum}
-P(\theta_{disc} | \underline{d}) = \frac{1}{Z} \sum_k p_{disc, k} P(\theta_k|d_k),
-\end{equation}
-and
-\begin{equation}\label{sum2}
-P(\theta_{smooth} | \underline{d}) = \frac{1}{Z} \sum_k p_{smooth, k} P(\theta_k|d_k), 
-\end{equation}
-where Z is a normalisation constant. For example, the galaxy shown in Figure \ref{one_example} would contribute almost evenly to both the smooth and disc parameters due to the GZ2 vote fractions. Since galaxies with similar vote fractions contain both a bulge and disc component, this method is effective in incorporating intermediate galaxies which are thought to be crucial to the morphological changes between early- and late-type galaxies. It was the consideration of these intermediate galaxies which was excluded from the investigation by S14.}
+Using this lookup table, each of the $126,316$ total galaxies in the GZ2 sample was run through \starfpy ~on multiple cores of a computer cluster to obtain the Markov Chain positions (analogous to $P(\theta_k|d_k)$) for each galaxy, $k$ (see Figure \ref{one_example}). In each case the Markov Chain consisted of $100$ `walkers' which took $400$ steps in the `burn-in' phase and $400$ steps thereafter, at which point the MCMC acceptance fraction was checked to be within the range $0.25 < f_{acc} < 0.5$ (which was true in all cases). }
+
+{\newchange These individual galaxy positions are then combined to visualise the areas of high probability in the model parameter space across a given population (e.g. the green valley). We do this by first discarding positions with a corresponding probability of $P(\theta_k|d_k) < 0.2$ in order to exclude galaxies which are not well fit by the quenching model; for example blue cloud galaxies which are still star forming will be poorly fit by a quenching model. The Markov Chain positions are then binned and weighted by their corresponding logarithmic probability $\log [P(\theta_k|d_k)]$, provided by the \emph{emcee} module. The GZ2 data also provides uniquely powerful continuous measurements of a galaxy's morphology, therefore we utilise the user vote fractions to obtain separate model parameters for both smooth and disc galaxies. This is obtained by also weighting by the morphology vote fraction when the binned positions are summated. We stress that this is no longer a Bayesian methodology; purely a visualisation of the individual galaxy results.
+
+For example, the galaxy shown in Figure \ref{one_example} would contribute almost evenly to both the smooth and disc parameters due to the GZ2 vote fractions. Since galaxies with similar vote fractions contain both a bulge and disc component, this method is effective in incorporating intermediate galaxies which are thought to be crucial to the morphological changes between early- and late-type galaxies. It was the consideration of these intermediate galaxies which was excluded from the investigation by S14.}
+
+%, as follows:
+%\begin{equation}\label{sum}
+%P(\theta_{disc} | \underline{d}) = \frac{1}{Z} \sum_k p_{disc, k} P(\theta_k|d_k),
+%\end{equation}
+%and
+%\begin{equation}\label{sum2}
+%P(\theta_{smooth} | \underline{d}) = \frac{1}{Z} \sum_k p_{smooth, k} P(\theta_k|d_k), 
+%\end{equation}
+%where Z is a normalisation constant. 
 
 
 \section{Results}\label{results}
@@ -510,6 +518,18 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{York et al.}{2000}]{York00} York, D. G. et al., 2000, AJ, 120, 1579
 \end{thebibliography}{}
 
+\appendix
+\section{Testing \starfpy}
+
+\section{Using look up tables}
+
+\begin{figure*}
+\centering{
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_full_sfh_function_0.png}
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_lookup_0}}
+\caption{Left panel: Results from \starfpy ~for \underline{known} $t_q$ and $\tau$ values (red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The median value is shown by the solid blue line with the dashed lines encompassing $68\% (\pm 1\sigma)$ of the samples. The time taken to run for a single galaxy using this method is approximately 2 hours. Right panel: Results from \starfpy ~for \underline{known} $t_q$ and $\tau$ values using a look up table generated from the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. THe time taken to run for a single galaxy using this method is approximately 2 minutes.}
+\label{sfr_mass_col}
+\end{figure*}
 
 
 %\appendix
