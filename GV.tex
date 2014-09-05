@@ -156,12 +156,16 @@ Beyond $z \sim 2$ the characteristic SFR flattens and is roughly constant back t
  
 Under these assumptions the average SFR of our models will result in a lower value than the relation defined in \citet{Peng} at all cosmic times with this treatment; each galaxy only resides on the `main sequence' at the point of quenching. However galaxies cannot remain on the `main sequence' from early to late times throughout their entire lifetimes given the unphysical stellar masses and SFRs this would result in at the current epoch in the local Universe \citep{Beth, Heinis14}. If we were to include prescriptions for no quenching, starbursts, mergers, AGN etc. into our models we would improve on our reproduction of the average SFR across cosmic time; however we chose to initially focus on the most simple model possible.
 
-Once this evolutionary SFR is obtained, it is convolved with the \citet{BC03} population synthesis models to generate a model SED at each time step. The observed features of galaxy spectra can be modelled using simple stellar population techniques which sum the contributions of individual, coeval, equal-metallicity stars. The accuracy of these predictions depends on the completeness of the input stellar physics. Comprehensive knowledge is therefore required of (i) stellar evolutionary tracks and (ii) the initial mass function (IMF) to synthesise a stellar population accurately. These stellar population synthesis (SPS) models are an extremely well explored (and often debated) area of astrophysics \citep{Maraston05, Eminian08, CGW09, Falk09, Chen10, Kriek10, MRC11, Mel12}. In this investigation we chose to utilise the \citet{BC03} \emph{GALEXEV} SPS models along with a Chabrier \citep{Chab03} IMF, across a large wavelength range ($0.0091 < ~\lambda~\rm{[\mu m]}~ < 160 $) with solar metallically (m62 in the \citet{BC03} models).
+Once this evolutionary SFR is obtained, it is convolved with the \citet{BC03} population synthesis models to generate a model SED at each time step. The observed features of galaxy spectra can be modelled using simple stellar population techniques which sum the contributions of individual, coeval, equal-metallicity stars. The accuracy of these predictions depends on the completeness of the input stellar physics. Comprehensive knowledge is therefore required of (i) stellar evolutionary tracks and (ii) the initial mass function (IMF) to synthesise a stellar population accurately. 
 
-The \citet{BC03} stellar population synthesis models were chosen over the \citet{Maraston05} models due to their proven reliability in reproducing colours of `typical' galaxies. \citet{Maraston05} focus on improving the implementation of TP-AGB stars in these models, which are known to severely redden post-starburst populations \citep{MG07, Kriek10}. Given that we are investigating a quenching star formation history model, rather than a starburst, we feel that the \citet{BC03} models are more appropriate for this investigation. 
+These stellar population synthesis (SPS) models are an extremely well explored (and often debated) area of astrophysics \citep{Maraston05, Eminian08, CGW09, Falk09, Chen10, Kriek10, MRC11, Mel12}. In this investigation we chose to utilise the \citet{BC03} \emph{GALEXEV} SPS models along with a Chabrier \citep{Chab03} IMF, across a large wavelength range ($0.0091 < ~\lambda~\rm{[\mu m]}~ < 160 $) with solar metallically (m62 in the \citet{BC03} models).
+
+The \citet{BC03} stellar population synthesis models {\newchange are a frequent choice of for many galaxy evolution investigations such as \citet{Bundy06, deLucia07, Daddi07, Salim07, Kewley08}. This choice of SPS model can incorporate systematic uncertainties into the results, therefore the BC03 models} were chosen over the \citet{Maraston05} models due to their proven reliability in reproducing colours of `typical' galaxies. \citet{Maraston05} focus on improving the implementation of TP-AGB stars in these models, which are known to severely redden post-starburst populations \citep{MG07, Kriek10}. Given that we are investigating a quenching star formation history model, rather than a starburst, we feel that the \citet{BC03} models are more appropriate for this investigation. 
 
 Fluxes from stars younger than $3~$Myr in the SPS model are suppressed to mimic the large optical depth of protostars embedded in dusty formation cloud (as in S14), then filter transmission curves are applied to the fluxes to obtain AB magnitudes and therefore colours. %The right panel of Figure \ref{sfr_mass_col} shows the evolution of these colours from the point of quenching onwards in the optical-NUV colour space. 
 {\changed Given that information about these modelled populations is available across all cosmic time, they can be `observed' at a given time in their history $t^{obs}$; this corresponds with the observed redshift of the GZ2 sample given the modelling assumptions.} Therefore, for the GZ2 sample, the observed redshift was used to calculate the assumed age of each galaxy, in order to compare the observed colours to the predicted models colours directly. 
+
+{\newchange It is not expected that these models will accurately be able to determine the SFH of every galaxy in the GZ2 sample, in particular those galaxies that have not been quenched. In this case the models described above can only attribute a constant star formation rate to these  unquenched galaxies. In reality, there are many possible forms of SFH that a galaxy can take, a few of which have been investigated in previous literature; starburts \citep{Canalizo01}, power law \citep{Glazebrook03}, single stellar populations \citep{Trager00, Sanchez06, Vazdekis10} and metallicity enrichment \citep{deLucia14}.}
 
 Figure \ref{pred} shows these predicted optical and NUV colours at a time of $t^{obs} = 12.8 ~\rm{Gyr}$ (the average observed time of the Galaxy Zoo 2 sample, $z \sim 0.076$) provided by the exponential SFH model. These predicted colours will be referred to as $d_{c,p}(t_{q}, \tau, t^{obs})$, where c=\{opt,NUV\} and p = predicted. The SFR at a time of $t^{obs}=12.8~\rm{Gyr}$ is also shown in Figure \ref{pred} to compare how this correlates with the predicted colours. The $u-r$ predicted colour shows an immediate correlation with the SFR, however the $NUV-u$ colour is more sensitive to the value of $\tau$ and so is ideal for tracing any recent star formation in a population . At small $\tau$ (rapid quenching timescales) the $NUV-u$ colour is insensitive to $t_{q}$, whereas at large $\tau$ (slow quenching timescales) the colour is very sensitive to $t_{q}$. Together the two colours are ideal for tracing the effects of $t_{q}$ and $\tau$ in a population. 
 
@@ -259,7 +263,7 @@ The left panel in Figure \ref{sfr_mass_col} shows how well the quenching models 
 
 %The contour plots in Figures \ref{all}-\ref{blue_c_clean} show the regions of high likelihood for the SFH model parameters $\theta = (t, \tau)$ for both smooth- and disc-like galaxies (left and right panels respectively) when considering the different subsets of the galaxies in the GZ2 sample. These plots were produced by \starfpy ~using the output of the MCMC sampling method outlined in Section \ref{stats}. A `burn-in' of 100 steps was utilised initially and then run until the `walkers' had converged to one or more likelihoods peaks. The histograms show the distribution for the individual parameters and are normalised to the same value across all the Figures in this Section. The colours in the background are provided as a reference to the predicted SFR at the average look-back time of the GZ2 sample ($t^{obs}=12.8~\rm{Gyr}$, see Figure \ref{pred}). 
 
-{\changed These models were implemented in the \starfpy ~package to produce Figures \ref{red_s}, \ref{green_v} \& \ref{blue_c} for the red sequence, green valley and blue cloud populations of smooth and disc galaxies respectively.} In this Section we refer to rapid, intermediate and slow quenching timescales which correspond to ranges of {\changed $\tau ~\rm{[Gyr]} < 1.0$, $1.0 < \tau ~\rm{[Gyr]} < 2.0$ and $\tau ~\rm{[Gyr]} > 2.0$} respectively. 
+{\changed These models were implemented in the \starfpy ~package to produce Figures \ref{red_s}, \ref{green_v} \& \ref{blue_c} for the red sequence, green valley and blue cloud populations of smooth and disc galaxies respectively.} In this Section we refer to rapid, intermediate and slow quenching timescales which correspond to ranges of {\changed $\tau ~\rm{[Gyr]} < 1.0$, $1.0 < \tau ~\rm{[Gyr]} < 2.0$ and $\tau ~\rm{[Gyr]} > 2.0$} respectively, {\newchange defined after consideration of Figures \ref{red_s}, \ref{green_v} \& \ref{blue_c}}. 
 
 
 
@@ -438,15 +442,20 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Brammer et al.}{2009}]{Brammer09} Brammer, G. B. et al., 2009, ApJ, 706, 173
 \bibitem[\protect\citeauthoryear{Brinchmann et al.}{2004}]{Brinch04} Brinchmann, J. et al., 2004, MNRAS, 351, 1151
 \bibitem[\protect\citeauthoryear{Bruzual \& Charlot}{2003}]{BC03} Bruzual, G. \& Charlot, S., 2003, MNRAS, 344, 1000
+\bibitem[\protect\citeauthoryear{Bundy et al.}{2006}]{Bundy06} Bundy, K. et al., 2006, ApJ, 651, 120
 \bibitem[\protect\citeauthoryear{Bundy et al.}{2007}]{Bundy07} Bundy, K. et al., 2007, ApJL, 655, L5
 \bibitem[\protect\citeauthoryear{Bundy et al.}{2009}]{Bundy09} Bundy, K. et al., 2009, ApJ, 697, 1369
 \bibitem[\protect\citeauthoryear{Bundy et al.}{2010}]{Bundy10} Bundy, K. et al., 2010, ApJ, 719, 1969
+\bibitem[\protect\citeauthoryear{Canalizo \& Stockton}{2001}]{Canalizo01} Canalizo, G. \& Stockon, A., 2001, ApJ, 555, 719
 \bibitem[\protect\citeauthoryear{Cardelli et al.}{1989}]{Cardelli89} Cardelli, J. A. et al., 1989, ApJ, 345, 245
 \bibitem[\protect\citeauthoryear{Casteels et al.}{2013}]{Casteels13} Casteels, K. et al., 2013, MNRAS, 429, 1051
 \bibitem[\protect\citeauthoryear{Chabrier et al.}{2003}]{Chab03} Chabrier, G., 2003, PASP, 115, 763
 \bibitem[\protect\citeauthoryear{Chen et al.}{2010}]{Chen10} Chen, X. Y. et al., 2010, A\&A, 515, 101
 \bibitem[\protect\citeauthoryear{Conroy, Gunn \& White}{2009}]{CGW09} Conroy, C., Gunn, J. E. \& White, M. 2009, ApJ, 699, 486
+\bibitem[\protect\citeauthoryear{Daddi et al.}{2007}]{Daddi07} Daddi, E. et al., 2007, ApJ, 670, 156
 \bibitem[\protect\citeauthoryear{Darg et al.}{2010}]{Darg10a} Darg, D. et al., 2010a, MNRAS, 401, 1552
+\bibitem[\protect\citeauthoryear{de Lucia \& Blaizot}{2007}]{deLucia07} de Lucia, G. \& Blaizot, J., 2007, MNRAS, 375, 2
+\bibitem[\protect\citeauthoryear{de Lucia}{2014}]{deLucia14} de Lucia, G., 2014, (arXiv:1407:7867)
 \bibitem[\protect\citeauthoryear{Ellison et al.}{2011}]{Ellison11} Ellison, S. L. et al., 2001, MNRAS, 416, 2182
 \bibitem[\protect\citeauthoryear{Emsellem et al.}{2007}]{Em07} Emsellem, E. et al., 2007, IAU Symposium 235
 \bibitem[\protect\citeauthoryear{Emsellem et al.}{2011}]{Em11} Emsellem, E, et al., 2011, MNRAS, 414, 888
@@ -456,6 +465,7 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Falkenberg et al.}{2009}]{Falk09} Falkenberg, M. A. et al., 2009, MNRAS, 397, 1954
 \bibitem[\protect\citeauthoryear{Foreman-Mackey et al.}{2013}]{Dan} Foreman-Mackey, D., Hogg, D. W., Lang, D., Goodman, J., 2013, PASP, 125, 306
 \bibitem[\protect\citeauthoryear{Genel et al.}{2008}]{Genel08} Genel, S. et al., 2008, ApJ, 688, 789
+\bibitem[\protect\citeauthoryear{Glazebrook et al.}{2003}]{Glazebrook03} Glazebrook, K. et al., 2003, ApJ, 587, 55
 \bibitem[\protect\citeauthoryear{Goodman \& Weare}{2010}]{GW10} Goodman, J. \& Weare, J., 2010, CAMCS, 5, 65
 \bibitem[\protect\citeauthoryear{Gon\c calves et al.}{2012}]{Gonc12} Gon\c calves, T. S. et al., 2012, ApJ, 759, 67
 \bibitem[\protect\citeauthoryear{Gonz\'alez et al.}{2010}]{Gonzalez} Gonz\'alez, V. et al., 2010, ApJ, 713, 115
@@ -467,6 +477,7 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Kaviraj et al.}{2011}]{Kav11} Kaviraj, S. et al. 2011, MNRAS, 411, 2148
 \bibitem[\protect\citeauthoryear{Kaviraj}{2014}]{Kav14} Kaviraj, S., 2014, MNRAS, 440, 2944
 \bibitem[\protect\citeauthoryear{Kennicutt}{1997}]{Kennicutt97} Kennicutt, R. C., 1997, ApJ, 498, 491
+\bibitem[\protect\citeauthoryear{Kewley \& Ellison}{2008}]{Kewley08} Kewley, L. J. \& Ellison, S. L., 2008, ApJ, 681, 1183
 \bibitem[\protect\citeauthoryear{Kormendy \& Kennicutt}{2004}]{KK04} Kormendy, J. \& Kennicutt, R. J., 2004, ARA\&A, 42, 603
 \bibitem[\protect\citeauthoryear{Kormendy et al.}{2010}]{Kormendy10} Kormendy, J. et al., 2010, ApJ, 723, 54
 \bibitem[\protect\citeauthoryear{Kriek et al.}{2010}]{Kriek10} Kriek, M. et al., 2010, ApJL, 722, L64
@@ -495,6 +506,7 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Robertson et al.}{2006}]{Rob06} Robertson, B. et al., 2006, ApJ, 645, 986
 \bibitem[\protect\citeauthoryear{Robitaille et al.}{2013}]{Rob13} Robitaille, T. P. et al., 2013, A\&A, 558, A33
 \bibitem[\protect\citeauthoryear{Salim et al.}{2007}]{Salim07} Salim, S. et al., 2007, ApJSS, 173, 267
+\bibitem[\protect\citeauthoryear{Sánchez-Blázquez et al.}{2006}]{Sanchez06} Sánchez-Blázquez, P. et al., 2006, A\&A, 457, 809
 \bibitem[\protect\citeauthoryear{Schawinski et al.}{2007}]{Sch07} Schawinski, et al., 2007, MNRAS, 382, 1415
 \bibitem[\protect\citeauthoryear{Schawinski et al.}{2009}]{Sch09} Schawinski, K. et al., 2009, MNRAS, 396, 818
 \bibitem[\protect\citeauthoryear{Schawinski et al.}{2014}]{Sch2014} Schawinski, K. et al., 2014 (arXiv: 1402.4814)
@@ -512,6 +524,8 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Taylor}{2005}]{Taylor05} Taylor, M. B., 2005, ASP Conference Series, 347
 \bibitem[\protect\citeauthoryear{Thomas et al.}{2010}]{Thomas10} Thomas, D. et al., 2010, MNRAS, 404, 1775
 \bibitem[\protect\citeauthoryear{Tojeiro et al.}{2013}]{Toj13} Tojeiro, R. et al., 2013, MNRAS, 432, 359
+\bibitem[\protect\citeauthoryear{Trager et al.}{2000}]{Trager00} Trager, S. C. et al., 2000, AJ, 120, 165
+\bibitem[\protect\citeauthoryear{Vazdekis et al.}{2010}]{Vazdekis10} Vazdekis, A. et al., 2010, MNRAS, 404, 1639
 \bibitem[\protect\citeauthoryear{Willett et al.}{2013}]{GZ2} Willett, K. et al., 2014, MNRAS, 435, 2835
 \bibitem[\protect\citeauthoryear{Willmer et al.}{2006}]{Willmer06} Willmer, C. N. A. et al., 2006, ApJ, 647, 853
 \bibitem[\protect\citeauthoryear{Wyder et al.}{2007}]{Wyder07} Wyder, T. K. et al., 2007, ApJS, 173, 293
@@ -521,17 +535,15 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \appendix
 
 \section{Using look up tables}\label{app_lookup}
-{\newchange Considering the size of the sample in this investigation of $126,316$ galaxies total, a three dimensional look up table (in observed time, quenching time and quenching rate) was generated using the star formation history function in \starfpy ~to speed up the run time. Figure \ref{lookup} shows an example of how using the look up table in place of the full function does not affect the results to a significant level. Table \ref{median_lu} quotes the median values along with their $\pm 1\sigma$ ranges for both methods in comparison to the true values specified to test \starfpy. The uncertainties incorporated into the quoted values by using the look up table are therefore minimal with a maximum $\Delta = 0.043$.
-
-
 \begin{figure}
 \centering{
-\includegraphics[width=0.48\textwidth]{corner_test_starfpy_full_sfh_function_0.png}
-\includegraphics[width=0.48\textwidth]{corner_test_starfpy_lookup_0}}
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_full_sfh_function_0.pdf}
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_lookup_0.pdf}}
 \caption{Top panel: Results from \starfpy ~for \underline{true} $t_q$ and $\tau$ values (red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The median value is shown by the solid blue line with the dashed lines encompassing $68\% (\pm 1\sigma)$ of the samples. The time taken to run for a single galaxy using this method is approximately 2 hours. Bottom panel: Results from \starfpy ~for \underline{true} $t_q$ and $\tau$ values using a look up table generated from the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The time taken to run for a single galaxy using this method is approximately 2 minutes.}
 \label{lookup}
 \end{figure}
 
+{\newchange Considering the size of the sample in this investigation of $126,316$ galaxies total, a three dimensional look up table (in observed time, quenching time and quenching rate) was generated using the star formation history function in \starfpy ~to speed up the run time. Figure \ref{lookup} shows an example of how using the look up table in place of the full function does not affect the results to a significant level. Table \ref{median_lu} quotes the median values along with their $\pm 1\sigma$ ranges for both methods in comparison to the true values specified to test \starfpy. The uncertainties incorporated into the quoted values by using the look up table are therefore minimal with a maximum $\Delta = 0.043$.
 
 
 \begin{table*}
@@ -552,7 +564,7 @@ Look up table        & $3.850 \pm^{2.988}_{2.619}$ & $2.218 \pm^{0.399}_{0.649}$
 In order to test that \starfpy ~can find the correct quenching model for a given observed colour, 25 true (i.e. known) values of $\theta$ were input into \starfpy ~ to ensure that these values were reproduced within error. Figure \ref{test_mosaic} shows the results of each of these tests, with the known values of $\theta$ shown by the red lines. In some cases this red line does not coincide with the peak of the distribution shown in the histograms for one parameter, however in all cases the intersection of the red lines is within the sample contours. 
 \begin{figure*}
 \centering{
-\includegraphics[width=\textwidth]{mosaic_test.png}}
+\includegraphics[width=\textwidth]{mosaic_test.pdf}}
 \caption{Left panel: Results from \starfpy ~for an areay of \underline{true} $t_q$ and $\tau$ values (marked by the red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration, assuming an error on the calculated known colours of $\sigma_{u-r} = 0.124$ and $\sigma_{NUV-u} = 0.215$, the average errors on the GZ sample colours. In each case \starfpy ~succeeds in locating the true parameter values within the degeneracies of the star formation history model. These degeneracies can clearly be seen in Figure \ref{pred}.}
 \label{test_mosaic}
 \end{figure*}
