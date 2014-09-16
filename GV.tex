@@ -13,7 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%
 \definecolor{titlecol}{rgb}{0,0,0}
 \def\changed    {\color{titlecol} }
-\definecolor{change}{rgb}{0,0,1}
+\definecolor{change}{rgb}{0,0,0}
 \def\newchange {\color{change} }
 \def\starfpy {\textsc{StarfPy}}
 
@@ -36,7 +36,7 @@
 \maketitle
 
 \begin{abstract}
-Does galactic evolution proceed through the green valley via multiple pathways or as a single population? Motivated by recent results  highlighting radically different evolutionary pathways between early- and late-type galaxies, we present results from a simple Bayesian approach to this problem wherein we model the star formation history of a galaxy and compare the predicted and observed optical and near-ultraviolet colours. We use a novel method to investigate the morphological differences between the most probable values for these parameters for both disc-like and elliptical-like populations of galaxies, by using probabilistic estimates of morphology from Galaxy Zoo\footnotemark[1]. We find that the parameters for the green valley galaxies for both major morphologies follow those of the red sequence but at later times, predicting the build up of the red sequence. The green valley is therefore a transitional population regardless of morphology. However, the rate of this transition depends on the morphology, with three possible routes through the green valley dominated by smooth- (rapid timescales, attributed to major merger), intermediate- (intermediate timescales, attributed to minor mergers and galaxy interactions) and disc-like (slow timescales, attributed to secular evolution) galaxies. {\changed We hypothesise that morphological changes occur in systems which have undergone quenching with a timescale $\tau < 1.5~\rm{Gyr}$, in order for the evolution of galaxies in the green valley to match the ratio of smooth to disc galaxies observed in the red sequence. These rapid timescales are instrumental in the formation of the red sequence at earlier times, however we find that galaxies currently passing through the green valley typically do so at intermediate timescales. The onset of quenching for disc galaxies across the colour-magnitude diagram is distributed evenly over all lookback times, confirming the assumption that whatever is driving the evolution of discs is constant over cosmic time.}
+Does galactic evolution proceed through the green valley via multiple pathways or as a single population? Motivated by recent results  highlighting radically different evolutionary pathways between early- and late-type galaxies, we present results from a simple Bayesian approach to this problem wherein we model the star formation history of a galaxy with two parameters and compare the predicted and observed optical and near-ultraviolet colours. We use a novel method to investigate the morphological differences between the most probable values for these parameters for both disc-like and elliptical-like populations of galaxies, by using probabilistic estimates of morphology from Galaxy Zoo\footnotemark[1]. We find that the parameters for the green valley galaxies for both major morphologies follow those of the red sequence but at later times, predicting the build up of the red sequence. The green valley is therefore a transitional population regardless of morphology. However, the rate of this transition depends on the morphology, with three possible routes through the green valley dominated by smooth- (rapid timescales, attributed to major merger), intermediate- (intermediate timescales, attributed to minor mergers and galaxy interactions) and disc-like (slow timescales, attributed to secular evolution) galaxies. {\changed We hypothesise that morphological changes occur in systems which have undergone quenching with an exponential timescale $\tau < 1.5~\rm{Gyr}$, in order for the evolution of galaxies in the green valley to match the ratio of smooth to disc galaxies observed in the red sequence. These rapid timescales are instrumental in the formation of the red sequence at earlier times, however we find that galaxies currently passing through the green valley typically do so at intermediate timescales. The onset of quenching for disc galaxies across the colour-magnitude diagram is distributed evenly over all lookback times, confirming the assumption that whatever is driving the evolution of discs is constant over cosmic time.}
 
 %The majority of elliptical galaxies have undergone transitions with intermediate timescales, comparable to those for minor mergers and galaxy interactions ($\tau \sim 1.5~\rm{Gyr}$), however a small minority ($4.2\%$) have undergone very rapid transitions with timescales comparable to that found for dry major mergers ($\tau \la 0.4~\rm{Gyr}$). This rapid quenching is not seen in disc-like galaxies, which have largely quenched on intermediate timescales, however the majority were found to transition at slower at timescales comparable to those for secular evolution mechanisms ($\tau \sim 2.5~\rm{Gyr}$). A minority of disc galaxies ($3.9\%$) quenched at the earliest times ($t \sim 3~\rm{Gyr}$) and have slow quenching timescales are therefore only just beginning to reach the red sequence at the current observational epoch.
 \end{abstract}
@@ -70,10 +70,10 @@ We have been motivated by a recent result suggesting two contrasting evolutionar
 \begin{tabular*}{0.9\textwidth}{r @{\extracolsep{\fill}}cccc}
 \hline
 \begin{tabular}[c]{@{}c@{}} {\color{white} -} \\ {\color{white} -}  \end{tabular} & All                                                      & Red Sequence                                              & Green Valley                                              & Blue Cloud \\  \hline 
-Smooth-like ($p_s > 0.5$)        & \begin{tabular}[c]{@{}c@{}}42453\\ (33.6\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}17424\\ (13.8\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}10687\\ (8.4\%)\end{tabular}   & \begin{tabular}[c]{@{}c@{}}14342\\ (11.3\%)\end{tabular}  \\ 
-Disc-like ($p_d > 0.5$)          & \begin{tabular}[c]{@{}c@{}}83863\\ (66.4\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}10722\\ (8.4\%)\end{tabular}   & \begin{tabular}[c]{@{}c@{}}13257\\ (10.5\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}59884\\ (47.4\%)\end{tabular}  \\
-Early-type ($p_s \geq 0.8$) & \begin{tabular}[c]{@{}c@{}}10517\\ (8.3\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}5337\\ (4.2\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}2496\\ (2.0\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}2684\\ (2.1\%)\end{tabular}    \\
-Late-type ($p_s \geq 0.8$)  & \begin{tabular}[c]{@{}c@{}}51470\\ (40.9\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}4493\\ (3.6\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}6817\\ (5.4\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}40430\\ (32.0\%)\end{tabular}  \\ \hline
+Smooth-like ($p_s > 0.5$)        & \begin{tabular}[c]{@{}c@{}}42453\\ (33.6\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}17424\\ (61.9\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}10687\\ (44.6\%)\end{tabular}   & \begin{tabular}[c]{@{}c@{}}14342\\ (19.3\%)\end{tabular}  \\ 
+Disc-like ($p_d > 0.5$)          & \begin{tabular}[c]{@{}c@{}}83863\\ (80.7\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}10722\\ (38.1\%)\end{tabular}   & \begin{tabular}[c]{@{}c@{}}13257\\ (55.4\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}59884\\ (47.4\%)\end{tabular}  \\
+Early-type ($p_s \geq 0.8$) & \begin{tabular}[c]{@{}c@{}}10517\\ (8.3\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}5337\\ (18.9\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}2496\\ (10.4\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}2684\\ (3.6\%)\end{tabular}    \\
+Late-type ($p_s \geq 0.8$)  & \begin{tabular}[c]{@{}c@{}}51470\\ (40.9\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}4493\\ (15.9\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}6817\\ (28.5\%)\end{tabular}    & \begin{tabular}[c]{@{}c@{}}40430\\ (54.4\%)\end{tabular}  \\ \hline
 \textbf{Total}                       & \begin{tabular}[c]{@{}c@{}}\textbf{126316} \\ (100.0\%)\end{tabular}                                                & \begin{tabular}[c]{@{}c@{}}28146 \\ (22.3\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}23944 \\ (18.9\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}74226 \\ (58.7\%)\end{tabular} \\\hline
 \end{tabular*}
 \label{subs}
@@ -562,25 +562,13 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 
 \section{Testing \starfpy}\label{app_test}
 {\newchange
-In order to test that \starfpy ~can find the correct quenching model for a given observed colour, 25 true (i.e. known) values of $\theta$ were input into \starfpy ~ to ensure that these values were reproduced within error. Figure~\ref{test_mosaic} shows the results of each of these tests, with the known values of $\theta$ shown by the red lines. In some cases this red line does not coincide with the peak of the distribution shown in the histograms for one parameter, however in all cases the intersection of the red lines is within the sample contours. 
+In order to test that \starfpy ~can find the correct quenching model for a given observed colour, 25 true (i.e. known) values of $\theta$ were input into \starfpy ~ to ensure that these values were reproduced within error. Figure~\ref{test_mosaic} shows the results of each of these tests, with the known values of $\theta$ shown by the red lines. In some cases this red line does not coincide with the peak of the distribution shown in the histograms for one parameter, however in all cases the intersection of the red lines is within the sample contours. }
 \begin{figure*}
 \centering{
 \includegraphics[width=\textwidth]{mosaic_test.pdf}}
 \caption{Results from \starfpy ~for an array of \underline{true} $t_q$ and $\tau$ values (marked by the red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration, assuming an error on the calculated known colours of $\sigma_{u-r} = 0.124$ and $\sigma_{NUV-u} = 0.215$, the average errors on the GZ sample colours. In each case \starfpy ~succeeds in locating the true parameter values within the degeneracies of the star formation history model. These degeneracies can clearly be seen in Figure~\ref{pred}.}
 \label{test_mosaic}
-\end{figure*}}
-
-\section{Using look up tables}\label{app_lookup}
-\begin{figure}
-\centering{
-\includegraphics[width=0.48\textwidth]{corner_test_starfpy_full_sfh_function_0.pdf}
-\includegraphics[width=0.48\textwidth]{corner_test_starfpy_lookup_0.pdf}}
-\caption{Top panel: Results from \starfpy ~for \underline{true} $t_q$ and $\tau$ values (red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The median value is shown by the solid blue line with the dashed lines encompassing $68\% (\pm 1\sigma)$ of the samples. The time taken to run for a single galaxy using this method is approximately 2 hours. Bottom panel: Results from \starfpy ~for \underline{true} $t_q$ and $\tau$ values using a look up table generated from the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The time taken to run for a single galaxy using this method is approximately 2 minutes.}
-\label{lookup}
-\end{figure}
-
-{\newchange Considering the size of the sample in this investigation of $126,316$ galaxies total, a three dimensional look up table (in observed time, quenching time and quenching rate) was generated using the star formation history function in \starfpy ~to speed up the run time. Figure~\ref{lookup} shows an example of how using the look up table in place of the full function does not affect the results to a significant level. Table~\ref{median_lu} quotes the median values along with their $\pm 1\sigma$ ranges for both methods in comparison to the true values specified to test \starfpy. The uncertainties incorporated into the quoted values by using the look up table are therefore minimal with a maximum $\Delta = 0.043$.
-
+\end{figure*}
 
 \begin{table*}
 \centering{
@@ -594,18 +582,20 @@ Look up table        & $3.850 \pm^{2.988}_{2.619}$ & $2.218 \pm^{0.399}_{0.649}$
 \end{tabular*}}
 \label{median_lu}
 \end{table*}
-}
+
+\section{Using look up tables}\label{app_lookup}
+
+{\newchange Considering the size of the sample in this investigation of $126,316$ galaxies total, a three dimensional look up table (in observed time, quenching time and quenching rate) was generated using the star formation history function in \starfpy ~to speed up the run time. Figure~\ref{lookup} shows an example of how using the look up table in place of the full function does not affect the results to a significant level. Table~\ref{median_lu} quotes the median values along with their $\pm 1\sigma$ ranges for both methods in comparison to the true values specified to test \starfpy. The uncertainties incorporated into the quoted values by using the look up table are therefore minimal with a maximum $\Delta = 0.043$.}
+
+\begin{figure}
+\centering{
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_full_sfh_function_0.pdf}
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_lookup_0.pdf}}
+\caption{Top panel: Results from \starfpy ~for \underline{true} $t_q$ and $\tau$ values (red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The median value is shown by the solid blue line with the dashed lines encompassing $68\% (\pm 1\sigma)$ of the samples. The time taken to run for a single galaxy using this method is approximately 2 hours. Bottom panel: Results from \starfpy ~for \underline{true} $t_q$ and $\tau$ values using a look up table generated from the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The time taken to run for a single galaxy using this method is approximately 2 minutes.}
+\label{lookup}
+\end{figure}
 
 
 
-%\appendix
-%
-%\section{Colour-colour diagram evolution}
-%\begin{Figure*}
-%\centering{
-%\includegraphics[width=\textwidth]{c_c_evo_numpy.pdf}}
-%\caption{Plots to show the evolution of the colour-colour diagram as predicted by the most likely exponential SFH model for each GZ2 galaxy. Each panel shows the model at different look-back times in the history of the Universe. The panel on the far right also includes the contours of the observed colours for the GZ2 galaxies in black, as well as the most likely predicted colours, in red, as a comparison.}
-%\label{c_c_evo}
-%\end{figure*}
 
 \end{document}
