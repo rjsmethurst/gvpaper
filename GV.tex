@@ -47,8 +47,6 @@ Does galaxy evolution proceed through the green valley via multiple pathways or 
 \footnotetext[1]{This investigation has been made possible by the participation of more than 250,000 users in the Galaxy Zoo project. Their contributions are individually acknowledged at \url{http://www.galaxyzoo.org/volunteers.aspx}}
 
 \section{Introduction}
-Previous large scale surveys of galaxies have revealed a bimodality in the colour-magnitude diagram (CMD) with two distinct populations; one at relatively low mass, with blue optical colours and another at relatively high mass, with red optical colours \citep{Baldry04, Baldry06, Willmer06, BLB08, Brammer09}. These populations were dubbed the `blue cloud' and `red sequence' respectively. The Galaxy Zoo project \citep{Lintott11}, which produced morphological classifications for a million galaxies, revealed that this bimodality is not entirely morphology driven \citep{Strat01, Bamford09, Skibba09}, detecting spiral galaxies in the red sequence \citep{Masters10} and elliptical galaxies in the blue cloud \citep{Sch09}.  
-
 \begin{figure*}
 \centering{
 \includegraphics[width=\textwidth]{mosaic_disc_fraction_z_0-07_0-075_(2).pdf}}
@@ -56,13 +54,16 @@ Previous large scale surveys of galaxies have revealed a bimodality in the colou
 \label{mosaic}
 \end{figure*}
 
+Previous large scale surveys of galaxies have revealed a bimodality in the colour-magnitude diagram (CMD) with two distinct populations; one at relatively low mass, with blue optical colours and another at relatively high mass, with red optical colours \citep{Baldry04, Baldry06, Willmer06, BLB08, Brammer09}. These populations were dubbed the `blue cloud' and `red sequence' respectively {\refchange \citep{Chester64, BLE92, Driver06, Faber07}}. The Galaxy Zoo project \citep{Lintott11}, which produced morphological classifications for a million galaxies, helped to confirm that this bimodality is not entirely morphology driven {\refchange \citep{Strat01, Salim07, Sch07, CHV08, Bamford09, Skibba09}, detecting larger fractions of spiral galaxies in the red sequence \citep{Masters10} and elliptical galaxies in the blue cloud \citep{Sch09} than had previously been detected. }
+
+
 The sparsely populated colour space between these two populations, the so-called `green valley', provides clues to the nature and duration of galaxies' transitions from blue to red. This transition must occur on rapid timescales, otherwise there would be an accumulation of galaxies residing in the green valley, rather than an accumulation in the red sequence as is observed \citep{Arnouts07, Martin07}. Green valley galaxies have therefore long been thought of as the `crossroads' of galaxy evolution, a transition population between the two main galactic stages of the star forming blue cloud and the `dead' red sequence \citep{Bell04, Wyder07, Schim07, Martin07, Faber07, Mendez11, Gonc12, Sch2014, Pan14}. 
 
 
 The intermediate colours of these green valley galaxies have been interpreted as evidence for recent quenching (suppression) of star formation \citep{Salim07}. Star forming galaxies are observed to lie on a well defined mass-SFR relation, however quenching a galaxy causes it to depart from this relation (\citealt{Noeske07, Peng}; see Figure~\ref{sfr_mass_sub})
 
 
-By studying the galaxies which  have just left this mass-SFR relation, we can probe the quenching mechanisms by which this occurs. There have been many previous theories for the initial triggers of these quenching mechanisms, including negative feedback from AGN \citep{Sch07}, mergers \citep{Darg10a}, supernovae winds \citep{MFB12} and secular evolution \citep{Masters10, Masters11}. By investigating the \emph{amount} of quenching that has occurred in the blue cloud, green valley and red sequence; and by comparing the amount across these three populations, we can apply some constraints to these theories. 
+By studying the galaxies which  have just left this mass-SFR relation, we can probe the quenching mechanisms by which this occurs. There have been many previous theories for the initial triggers of these quenching mechanisms, including negative feedback from AGN {\refchange \citep{diMatteo05, Martin07, Nandra07, Sch07}, mergers \citep{Darg10a, Cheung12, Barro13}, supernovae winds \citep{MFB12}, cluster interactions \citep{Coil08, Mendez11, Fang13} and secular evolution \citep{Masters10, Masters11, Mendez11}.} By investigating the \emph{amount} of quenching that has occurred in the blue cloud, green valley and red sequence; and by comparing the amount across these three populations, we can apply some constraints to these theories. 
 
 We have been motivated by a recent result suggesting two contrasting evolutionary pathways through the green valley by different morphological types (\citealt{Sch2014}, hereafter S14), specifically that late-type galaxies quench very slowly and form a nearly static disc population in the green valley, whereas early-type galaxies quench very rapidly, transitioning through the green valley and onto the red sequence in $\sim 1$~Gyr \citep{Wong12}. That study used a toy model to examine quenching across the green valley. Here we implement a novel method utilising Bayesian statistics (for a comprehensive overview of Bayesian statistics see either \citealt{MacKay} or \citealt{Sivia}) in order to find the most likely model description of the star formation histories of galaxies in the three populations. This method also enables a direct comparison with our current understanding of galaxy evolution from stellar population synthesis (SPS, see section~\ref{models}) models. 
 
@@ -105,17 +106,18 @@ We further select a sub-sample with detailed morphological classifications, as d
 
 \subsection{Galaxy Zoo 2 Morphological classifications}\label{class}
 
-
-In this investigation we use visual classifications of galaxy morphologies from the Galaxy Zoo 2\footnote{\url{http://zoo2.galaxyzoo.org/}} citizen science project \citep{GZ2}, which obtains multiple independent classifications for each galaxy image; the full question tree for each image is shown in Figure 1 of \citealt{GZ2}.  
-
-The Galaxy Zoo 2 (GZ2) project consists of $304, 022$ images from the SDSS DR8 (a subset of those classified in Galaxy Zoo 1; GZ1) all classified by \emph{at least} 17 independent users, with the mean number of classifications standing at $\sim42$. The GZ2 sample is more robust than the GZ1 sample and provides more detailed morphological classifications, including features such as bars, the number of spiral arms and the ellipticity of smooth galaxies. It is for these reasons we use the GZ2 sample, as opposed to the GZ1, allowing for further investigation of specific galaxy classes in the future (see Section~\ref{future}). The only selection that was made on the sample was to remove objects considered to be stars or artefacts by the users (i.e. with $p_{star/artefact} ~\geq~ 0.8$). Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample were observed, giving a total sample size of $126, 316$ galaxies. {\refchange The completeness of this subsample of GZ2 matched to GALEX is shown in Figure~\ref{complete} with the u-band absolute magnitude against redshift for this sample compared with the SDSS data set. Typical Milky Way $L_*$ galaxies with $M_u \sim -20.5$ are still included in the GZ2 subsample out to the highest redshift of $z \sim 0.25$; however dwarf and lower mass galaxies are only detected at the lowest redshifts.}
-
 \begin{figure}
 \centering{
 \includegraphics[width=0.48\textwidth]{mag_redshift_completeness.pdf}}
 \caption{{\refchange Absolute u-band magnitude against redshift for the whole of SDSS (grey dashed lines) in comparison to the GZ2 subsample (blue solid lines). Typical Milky Way $L_*$ galaxies with $M_u \sim -20.5$ are still included in the GZ2 subsample out to the highest redshift of $z \sim 0.25$.}}
 \label{complete}
 \end{figure}
+
+In this investigation we use visual classifications of galaxy morphologies from the Galaxy Zoo 2\footnote{\url{http://zoo2.galaxyzoo.org/}} citizen science project \citep{GZ2}, which obtains multiple independent classifications for each galaxy image; the full question tree for each image is shown in Figure 1 of \citealt{GZ2}.  
+
+The Galaxy Zoo 2 (GZ2) project consists of $304, 022$ images from the SDSS DR8 (a subset of those classified in Galaxy Zoo 1; GZ1) all classified by \emph{at least} 17 independent users, with the mean number of classifications standing at $\sim42$. The GZ2 sample is more robust than the GZ1 sample and provides more detailed morphological classifications, including features such as bars, the number of spiral arms and the ellipticity of smooth galaxies. It is for these reasons we use the GZ2 sample, as opposed to the GZ1, allowing for further investigation of specific galaxy classes in the future (see Section~\ref{future}). The only selection that was made on the sample was to remove objects considered to be stars or artefacts by the users (i.e. with $p_{star/artefact} ~\geq~ 0.8$). Further to this, we required NUV photometry from the GALEX survey, within which $\sim42\%$ of the GZ2 sample were observed, giving a total sample size of $126, 316$ galaxies. {\refchange The completeness of this subsample of GZ2 matched to GALEX is shown in Figure~\ref{complete} with the u-band absolute magnitude against redshift for this sample compared with the SDSS data set. Typical Milky Way $L_*$ galaxies with $M_u \sim -20.5$ are still included in the GZ2 subsample out to the highest redshift of $z \sim 0.25$; however dwarf and lower mass galaxies are only detected at the lowest redshifts.}
+
+
 
 \begin{figure}
 \centering{
@@ -319,13 +321,13 @@ These results for red sequence galaxies have many implications for green valley 
 \label{green_v}
 \end{figure*}
 
-In Figure~\ref{green_v} we can make similar comparisons for the green valley galaxies to those discussed previously for the red sequence. {\changed Among green valley galaxies the preference for rapid quenching timescales drops by over a factor of two for both morphologies. {\newchange For the red sequence galaxies, an argument can be made for two possible tracks across the green valley, shown by the bimodal nature of both distributions in $\tau$ with a common area in the intermediate timescales region where the rapid and slow timescales peaked distributions intersect. However in the green valley this intermediate quenching timescale region becomes more significant, particularly for the smooth-like galaxies (see the left panel of Figure~\ref{green_v}). }
+In Figure~\ref{green_v} we can make similar comparisons for the green valley galaxies to those discussed previously for the red sequence. {\newchange For the red sequence galaxies, an argument can be made for two possible tracks across the green valley, shown by the bimodal nature of both distributions in $\tau$ with a common area in the intermediate timescales region where the rapid and slow timescales peaked distributions intersect. However in the green valley this intermediate quenching timescale region becomes more significant {\refchange (in agreement with the conclusions of \citealt{Gonc12})}, particularly for the smooth-like galaxies (see the left panel of Figure~\ref{green_v}). }
 
-The smooth galaxy parameters favour these intermediate quenching timescales ($40.6\%$) with some preference for slow quenching at  early times ($z > 1$).} This may be counter intuitive at first, as one of the main arguments for the lack of galaxies in the green valley is due to the hypothesised rapid movement across it; {\refchange however the number of present day green valley galaxies detected with this rapid quenching history will therefore be low.} {\changed Those galaxies with such a rapid decline in star formation will pass so quickly through the green valley they will be detected at a lower number than those galaxies which have stalled in the green valley with intermediate quenching timescales;} accounting for the observed number of intermediate galaxies which are present in the green valley {\newchange and the dominance of rapid timescales detected in the red sequence for both morphologies.} 
+The smooth galaxy parameters favour these intermediate quenching timescales ($40.6\%$) with some preference for slow quenching at  early times ($z > 1$).}  {\changed The preference for rapid quenching of smooth galaxies has dropped by over a half compared to the red sequence, {\refchange however this will be influenced by the observability of galaxies undergoing such a rapid quench which will spend significantly less time in the transitional population of the green valley}. {\changed Those galaxies with such a rapid decline in star formation will pass so quickly through the green valley they will be detected at a lower number than those galaxies which have stalled in the green valley with intermediate quenching timescales;} accounting for the observed number of intermediate galaxies which are present in the green valley {\newchange and the dominance of rapid timescales detected in the red sequence for both morphologies.} 
 
 {\changed The disc galaxy parameters for the green valley population now overwhelmingly prefer slow quenching timescales ($47.4\%$) with a similar amount of intermediate quenching compared to the smooth galaxy parameters ($37.6\%$; see Figure~\ref{green_v}).} There is still some preference for galaxies with a star formation history which results in a high current SFR, suggesting there are also some late-type galaxies that have just progressed from the blue cloud into the green valley. 
 
-{\changed If we compare Figure~\ref{green_v} to Figure~\ref{red_s} {\refchange we can see a quenching has occurred at later (more recent) cosmic times} in the green valley than in the red sequence for both galaxy types.} Therefore both morphologies are tracing the evolution of the red sequence, confirming that the green valley is indeed a transitional population between blue cloud and red sequence regardless of morphology. Currently as we observe the green valley, its main constituents are very slowly evolving disc-like galaxies along with intermediate- and smooth-like galaxies which pass across it with intermediate timescales within $\sim 1.0-1.5~\rm{Gyr}$.
+{\changed If we compare Figure~\ref{green_v} to Figure~\ref{red_s} {\refchange we can see quenching has occurred at later (more recent) cosmic times} in the green valley than in the red sequence for both galaxy types.} Therefore both morphologies are tracing the evolution of the red sequence, confirming that the green valley is indeed a transitional population between blue cloud and red sequence regardless of morphology. Currently as we observe the green valley, its main constituents are very slowly evolving disc-like galaxies along with intermediate- and smooth-like galaxies which pass across it with intermediate timescales within $\sim 1.0-1.5~\rm{Gyr}$.
 
 Given enough time ($t\sim4 - 5~\rm{Gyr}$), the disc galaxies will eventually fully pass through the green valley and make it out to the red sequence (the right panel of Figure~\ref{sfr_mass_col} shows galaxies with $\tau > 1.0~\rm{Gyr}$ do not approach the red sequence within $3~\rm{Gyr}$ post quench). This is most likely the origin of the `red spirals'.
 
@@ -336,7 +338,7 @@ Given enough time ($t\sim4 - 5~\rm{Gyr}$), the disc galaxies will eventually ful
 \label{blue_c}
 \end{figure*}
 
-{\changed If we consider the red sequence as the `end point' of galactic evolution, then we can expect that the ratio of smooth:disc galaxies that is currently observed in the green valley will evolve into the ratio observed in the red sequence. Table~\ref{subs} shows the ratio of smooth : disc galaxies in the observed red sequence of the GZ2 sample is $62:38$ whereas in the green valley it is $45:55$. {\refchange Making the very simple assumptions that this ratio does not change with redshift and that quenching is the only mechanism which causes a morphological transformation, we can infer that $31.2\%$ of the disc-dominated galaxies currently residing in the green valley would have to undergo a morphological change to a bulge-dominated galaxy.} We find that the fraction of the probability for green valley disc galaxies occupying the parameter space $\tau < 1.5 ~\rm{Gyr}$ is $29.4\%$, and therefore suggest that quenching mechanisms with these timescales are capable of destroying the disc-dominated nature of galaxies.}
+{\changed If we consider the red sequence as the `end point' of galactic evolution, then we can expect that the ratio of smooth:disc galaxies that is currently observed in the green valley will evolve into the ratio observed in the red sequence. Table~\ref{subs} shows the ratio of smooth : disc galaxies in the observed red sequence of the GZ2 sample is $62:38$ whereas in the green valley it is $45:55$. {\refchange Making the very simple assumptions that this ratio does not change with redshift and that quenching is the only mechanism which causes a morphological transformation, we can infer that $31.2\%$ of the disc-dominated galaxies currently residing in the green valley would have to undergo a morphological change to a bulge-dominated galaxy.} We find that the fraction of the probability for green valley disc galaxies occupying the parameter space $\tau < 1.5 ~\rm{Gyr}$ is $29.4\%$, and therefore suggest that quenching mechanisms with these timescales are capable of destroying the disc-dominated nature of galaxies. {\refchange This is most likely an overestimate of the mechanisms with timescales that can cause a morphological change because of the observability of those galaxies which undergo such a rapid quench; \citep{Martin07} showed that after considering the time spent in the green valley, the fraction of galaxies undergoing a rapid quench quadruples.}}
 
 All of this evidence suggests that there are not just two routes for galaxies through the green valley {\refchange  as concluded by S14}, but a continuum of quenching timescales which we can divide into three general regimes: {\newchange rapid ($\tau < 1.0 ~\rm{Gyr}$), intermediate ($1.0 < \tau < 2.0~\rm{Gyr}$) and slow ($\tau > 2.0~\rm{Gyr}$). The intermediate quenching timescales reside in the space between the extremes sampled by the UV/optical diagrams of S14; the inclusion of the intermediate galaxies in this investigation (unlike in S14) and the more precise Bayesian analysis, quantifies this range of $\tau$ and specifically ties the intermediate timescales to all variations of galaxy morphology.} %Since S14 did not consider intermediate galaxies, their conclusions that there are two routes through the green valley for galaxies contradicts with our statements that their are three or more routes, dependant on whether a galaxy is early-, intermediate- or late-type. 
 
@@ -344,13 +346,12 @@ All of this evidence suggests that there are not just two routes for galaxies th
 \subsection{Blue Cloud Galaxies}\label{bc}
 
 
-
 Since the blue cloud is considered to be primarily made of star forming galaxies we expect \starpy~ to have some difficulty in determining the most likely quenching model to describe them, as confirmed by Figure~\ref{blue_c}. The attempt to characterise a star forming galaxy with a quenched SFH model leads \starpy~ to attribute the extremely blue colours of the majority of these galaxies to fast quenching at recent times (i.e. very little change in the SFR; see the right panel of Figure~\ref{blue_c} in comparison with the bottom panel of Figure~\ref{pred}).
 
 {\changed Similarly the only quenching detected within the blue cloud disc galaxy population is for rapid quenching at recent times. Perhaps even galaxies which are currently quenching slowly across the blue cloud cannot be well fit by the quenching models implemented, as they still have high SFRs despite some quenching (although a galaxy has undergone quenching, star formation can still occur in a galaxy, just at a slower rate than at earlier times, described by $\tau$).} 
 
 
-{\changed There is a very small preference among blue bulge dominated galaxies for slow quenching which began prior to $z \sim 0.5 $. These populations have been blue for a considerable period of time, slowly using up their gas for star formation by the Kennicutt$-$Schmidt law \citep{Schmidt59, Kennicutt97}. However the major preference is for rapid quenching at recent times in the blue cloud; this therefore provides some support to the theories for blue ellipticals as either merger-driven ($\sim76\%$) or gas inflow-driven reinvigorated star formation that is now slowly decreasing ($\sim24\%$).} {\refchange However, we remind the reader that the quenching models used in this work do not provide an adequate fit to the blue cloud population.
+{\changed There is a very small preference among blue bulge dominated galaxies for slow quenching which began prior to $z \sim 0.5 $. These populations have been blue for a considerable period of time, slowly using up their gas for star formation by the Kennicutt$-$Schmidt law \citep{Schmidt59, Kennicutt97}. However the major preference is for rapid quenching at recent times in the blue cloud; this therefore provides some support to the theories for blue ellipticals as either merger-driven {\refchange ($\sim76\%$; like those identified as recently quenched ellipticals with properties consistent with a merger origin by \citealt{McIntosh14}) or gas inflow-driven reinvigorated star formation that is now slowly decreasing ($\sim24\%$; such as the population of blue spheroidal galaxies studied by \citealt{Kaviraj13}).} However, we remind the reader that the quenching models used in this work do not provide an adequate fit to the blue cloud population.
 
 The blue cloud is therefore primarily composed of both star forming galaxies with any morphology and smooth galaxies which {\changed are undergoing a rapid quench, presumably after a previous event triggered star formation and turned them blue}. }
 
@@ -366,11 +367,11 @@ We have implemented a Bayesian statistical analysis of the star formation histor
 
 \subsection{Rapid Quenching Mechanisms}\label{rapid}
 
-{\changed Rapid quenching is much more prevalent in smooth galaxies than disc galaxies, and red sequence galaxies are also much more likely to be characterised by a rapid quenching model than green valley galaxies (ignoring blue cloud galaxies due to their apparent poor fit by the quenching models, see Figure~\ref{blue_c}). In the green valley there is also a distinct lack of preference for rapid quenching timescales with $\tau < 0.5~\rm{Gyr}$.} This suggests that this rapid quenching mechanism causes a change in morphology from a disc- to a smooth-like galaxy as it quickly traverses the colour-magnitude diagram to the red sequence, {\newchange supported by the number of disc galaxies that would need to undergo a morphological change in order for the disc : smooth ratio of galaxies in the green valley to match that of the red sequence (see Section~\ref{gv})}. {\newchange From this indirect evidence we suggest that} this rapid quenching mechanism is due to major mergers.
+{\changed Rapid quenching is much more prevalent in smooth galaxies than disc galaxies, and red sequence galaxies are also much more likely to be characterised by a rapid quenching model than green valley galaxies (ignoring blue cloud galaxies due to their apparent poor fit by the quenching models, see Figure~\ref{blue_c}). In the green valley there is also a distinct lack of preference for rapid quenching timescales with $\tau < 0.5~\rm{Gyr}$; {\refchange however we must bear in mind the observability of a rapid quenching history declines with decreasing $\tau$. Rapid mechanisms maybe more common in the green valley than seen in Figure \ref{green_v}, however this observability should not depend on morphology so we can still conclude that rapid quenching mechanisms are detected more for smooth rather than disc galaxies.}} This suggests that this rapid quenching mechanism causes a change in morphology from a disc- to a smooth-like galaxy as it quickly traverses the colour-magnitude diagram to the red sequence, {\newchange supported by the number of disc galaxies that would need to undergo a morphological change in order for the disc : smooth ratio of galaxies in the green valley to match that of the red sequence (see Section~\ref{gv})}. {\newchange From this indirect evidence we suggest that} this rapid quenching mechanism is due to major mergers.
 
 % In Sections~\ref{rs},~\ref{green_v} and~\ref{bc} we find rapid quenching occurring at quenching times $t\sim4~\rm{Gyr}$, $t\sim11~\rm{Gyr}$ and $t\sim13.8~\rm{Gyr}$ for the red sequence, green valley and clean blue cloud galaxies respectively.
 
-Inspection of the galaxies contributing to this area of probability reveals that this does not arise due to \emph{currently} merging pairs identified by GZ users, but by typical smooth galaxies with red optical and NUV colours that the model attributes to rapid quenching at early times.
+Inspection of the galaxies contributing to this area of probability reveals that this does not arise due to \emph{currently} merging pairs missed by GZ users which were therefore not excluded from the sample (see Section \ref{class}), but by typical smooth galaxies with red optical and NUV colours that the model attributes to rapid quenching at early times. {\refchange Although a prescription for modelling a merger in the SFH is not included in this work we can still therefore detect the after affects (see Section \ref{future} for future work planned with \starpy).} 
 
 One simulation of interest by \citet{Springel05} showed that feedback from black hole activity is a necessary component of destructive major mergers to produce such rapid quenching timescales. Powerful quasar outflows remove much of the gas from the inner regions of the galaxy, terminating star formation on extremely short timescales. \citet{Bell06}, using data from the COMBO-17 redshift survey ($0.4 < z < 0.8$), estimate a merger timescale from being classified as a close galaxy pair to recognisably disturbed as $\sim 0.4~\rm{Gyr}$. \citet{Springel05} consequently find using hydrodynamical simulations that after $\sim1~\rm{Gyr}$ the merger remnant has reddened to $u-r \sim 2.0$. This is in agreement with our simple quenching models which show (Figure~\ref{sfr_mass_col}) that within $\sim1~\rm{Gyr}$ the models with a SFH with $\tau < 0.4~\rm{Gyr}$ have reached the red sequence with $u-r ~\ga 2.2$. {\changed This could explain the preference for red sequence disc galaxies with rapid quenching timescales ($31.3\%$), as they may have undergone a major merger recently but are still undergoing a morphological change from disc, to disturbed, to an eventual smooth galaxy (see also \citealt{vdW09}).} 
 
@@ -378,14 +379,14 @@ One simulation of interest by \citet{Springel05} showed that feedback from black
 
 %Most of this rapid quenching occurs for smooth galaxies in the red sequence (see Figure~\ref{red_s_clean}) and it occurs before a quenching time of $t\sim6~\rm{Gyr}$ ($z\sim1$). This is in agreement with \citet{Im02} who state that if major mergers are responsible for the formation of luminous ellipticals (and S0s) such a process must have occurred predominantly before ($z\sim1$). 
 
-{\changed We reiterate that this rapid quenching mechanism occurs much more rarely in green valley galaxies of both morphologies than in the red sequence, however does not fully characterise all the galaxies in either the red sequence or green valley.} Dry major mergers therefore do not fully account for the formation of any galaxy type at any redshift, supporting the observational conclusions made by \citet{Bell07,Bundy07, Kav14} and simulations by \citet{Genel08}.
+{\changed We reiterate that this rapid quenching mechanism occurs much more rarely in green valley galaxies of both morphologies than in the red sequence, however does not fully characterise all the galaxies in either the red sequence or green valley.} Dry major mergers therefore do not fully account for the formation of any galaxy type at any redshift, supporting the observational conclusions made by \citet{Bell07,Bundy07, Kav14} and simulations by \citet{Genel08}. 
 
 \subsection{Intermediate Quenching Mechanisms}\label{int}
 {\changed Intermediate quenching timescales are found to be equally prevalent across populations for both smooth and disc galaxies across cosmic time, {\newchange particularly in the green valley. Intermediate timescales are the prevalent mechanism for quenching smooth green valley galaxies, unlike the rapid quenching prevalent in the red sequence.}} We suggest that this intermediate quenching route must therefore be possible with routes that both preserve and transform morphology. It is this result of {\newchange another route through the green valley that is in contradiction} with the findings of S14. 
 
 If we once again consider the simulations of \citet{Springel05}, this time without any feedback from black holes, they suggest that if even a small fraction of gas is not consumed in the starburst following a merger (either because the mass ratio is not large enough or from the lack of strong black hole activity) the remnant can sustain star formation for periods of several Gyrs. The remnants from these simulations take $\sim5.5~\rm{Gyr}$ to reach red optical colours of $u-r \sim 2.1$. We can see from Figure~\ref{sfr_mass_col} that the models with intermediate quenching timescales of $1.0 \la ~\tau~\rm{[Gyr]} ~\la 2.0$ take approximately $2.5-5.5~\rm{Gyr}$ to reach these red colours.
 
-We speculate that the intermediate quenching timescales are caused by gas rich major mergers, major mergers without black hole feedback and from minor mergers, the latter of which is the dominant mechanism. This is supported by the findings of \citet{Lotz08} who find that the detectability timescales for equal mass gas rich mergers with large initial separations range from $\sim 1.1-1.9~\rm{Gyr}$, and of \citet{Lotz11}, who find in further simulations that as the baryonic gas fraction in a merger with mass ratios of 1:1-1:4 increases, so does the timescale of the merger from $\sim0.2~\rm{Gyr}$ (with little gas, as above for major mergers causing rapid quenching timescales) up to $\sim1.5~\rm{Gyr}$ (with large gas fractions). {\refchange Here we are assuming that the morphologically detectable timescale is of the same order as the quenching timescale which is supported by the findings of REF REF REF. }
+We speculate that the intermediate quenching timescales are caused by gas rich major mergers, major mergers without black hole feedback and from minor mergers, the latter of which is the dominant mechanism. This is supported by the findings of \citet{Lotz08} who find that the detectability timescales for equal mass gas rich mergers with large initial separations range from $\sim 1.1-1.9~\rm{Gyr}$, and of \citet{Lotz11}, who find in further simulations that as the baryonic gas fraction in a merger with mass ratios of 1:1-1:4 increases, so does the timescale of the merger from $\sim0.2~\rm{Gyr}$ (with little gas, as above for major mergers causing rapid quenching timescales) up to $\sim1.5~\rm{Gyr}$ (with large gas fractions). {\refchange Here we are assuming that the morphologically detectable timescale is of the same order as the quenching timescale which is a very basic assumption, considering the fractions of blue ellipticals observed, thought to be post-merger systems with the induced starburst still detectable in the photometry.}
 
 \citet{Lotz08} also show that the remnants of these simulated equal mass gas rich disc mergers (wet disc mergers) are observable for $\ga1~\rm{Gyr}$ post merger and {\refchange state that they appear ``disc-like and dusty" in the simulations, which is consistent with an ``early-type spiral morphology"}.  Such galaxies are often observed to have spiral features with a dominant bulge, suggesting that such galaxies may divide the votes of the GZ2 users, producing vote fractions of $p_s \sim p_d \sim 0.5$. We believe this is why the intermediate quenching timescales are equally dominant for both smooth and disc galaxies across each population in Figures~\ref{red_s} and~\ref{green_v}. 
 
@@ -393,7 +394,9 @@ Other simulations (e.g. such as \citet{Rob06} and \citet{Barnes02}) support the 
 
 {\changed $40.6\%$ of the probability for smooth galaxies in the green valley arises due to intermediate quenching timescales (see Figure~\ref{green_v}); this is in agreement with work done by \citet{Kav14} who by studying SDSS photometry ($z<0.07$) state that approximately half of the star formation in early-type galaxies is driven by minor mergers at $0.5 < z < 0.7$ therefore exhausting available gas for star formation and consequently causing a gradual decline in the star formation rate}. This supports earlier work by \cite{Kav11} who, using multi wavelength photometry of galaxies in COSMOS \citep{Scoville07}, found that $70\%$ of early-type galaxies appear morphologically disturbed, suggesting either a minor or major merger in their history. {\changed This is in agreement with the total percentage of probability with $\tau < 2.0 ~\rm[Gyr]$; $73.9\%$ and $59.3\%$, for the smooth red sequence and green valley galaxies in Figures~\ref{red_s} and~\ref{green_v} respectively.} {\refchange Note that the star formation model used here is a basic one and has no prescription for reignition of star formation post-quench which can also cause morphological disturbance of a galaxy, like those detected by \cite{Kav11}.}
 
-The resultant intermediate quenching timescales occur due to one interaction mechanism, unlike the rapid quenching, which occurs due to a major merger combined with AGN feedback, and decreases the SFR over a short period of time. Therefore any external event which can cause either a burst of star formation (depleting the gas available) or directly strip a galaxy of its gas, {\refchange for example galaxy harassment, interactions, ram pressure stripping, strangulation and interactions internal to clusters, would cause quenching on an intermediate timescale. Such mechanisms would be the dominant cause of quenching in dense environments;} considering that the majority of galaxies reside in groups or clusters, it is not surprising that the majority of our galaxies are considered intermediate in morphology (see Table~\ref{subs}) {\newchange and therefore are undergoing or have undergone such an interaction.}
+{\refchange \citep{Darg10a} show in their Figure 6 that that beyond a merger ratio of $1:10$ (up to $\sim 1:100$), green is the dominant average galaxy colour of the visually identified merging pair in GZ. These mergers are also dominated by spiral-spiral mergers as opposed to elliptical-elliptical and elliptical-spiral. This supports our hypothesis that these intermediate timescales dominating in the green valley are caused in part by minor mergers. This is contradictory to the findings of \citep{Mendez11} who find the merger fraction in the green valley is much lower than in the blue cloud, however they use an analytical light decomposition indicator ($Gini/M_{20}$; see \citealt{Lotz08}) to identify their mergers, which tend to detect major mergers more easily than minor mergers. We have discussed the lower likelihood of a green valley galaxy to undergo a rapid quench, which we have attributed to major mergers (see Section \ref{rapid}), despite the caveat of the observability and believe that this may have been the phenomenon that \citep{Mendez11} detected.}
+
+The resultant intermediate quenching timescales occur due to one interaction mechanism, unlike the rapid quenching, which occurs due to a major merger combined with AGN feedback, and decreases the SFR over a short period of time. Therefore any external event which can cause either a burst of star formation (depleting the gas available) or directly strip a galaxy of its gas, {\refchange for example galaxy harassment, interactions, ram pressure stripping, strangulation and interactions internal to clusters, would cause quenching on an intermediate timescale. Such mechanisms would be the dominant cause of quenching in dense environments;} considering that the majority of galaxies reside in groups or clusters (\citealt{Coil08} find that green valley galaxies are just as clustered as red sequence galaxies), it is not surprising that the majority of our galaxies are considered intermediate in morphology (see Table~\ref{subs}) {\newchange and therefore are undergoing or have undergone such an interaction.}
 
 
 \subsection{Slow Quenching Timescales}\label{slow}
@@ -469,6 +472,7 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Ball, Loveday \& Brunner}{2008}]{BLB08} Ball, N. M., Loveday, J. \& Brunner, R. J., 2008, MNRAS, 383, 907
 \bibitem[\protect\citeauthoryear{Bamford et al.}{2009}]{Bamford09} Bamford, S. P. et al., 2009, MNRAS, 393, 1324
 \bibitem[\protect\citeauthoryear{Barnes \& Hernquist}{1996}]{BH96} Barnes, J. E. \& Hernquist, L., 1996, ApJ, 471, 115
+\bibitem[\protect\citeauthoryear{Barro et al.}{2013}]{Barro13} Barro, G. et al., 2013, ApJ, 765, 104
 \bibitem[\protect\citeauthoryear{Barnes}{2002}]{Barnes02} Barnes, J. E., 2002, MNRAS, 333, 481
 \bibitem[\protect\citeauthoryear{Bell et al.}{2004}]{Bell04} Bell, E. F. et al., 2004, ApJ, 608, 752
 \bibitem[\protect\citeauthoryear{Bell et al.}{2006}]{Bell06} Bell, E. F. et al., 2006, ApJ, 652, 270
@@ -476,6 +480,7 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{B\'ethermin et al.}{2012}]{Beth} B\'ethermin, M. et al., 2012, ApJ, 757, L23
 \bibitem[\protect\citeauthoryear{Blanton et al.}{2005}]{Blanton05} Blanton, M. R. et al., 2005, AJ, 129, 2562
 \bibitem[\protect\citeauthoryear{Blanton \& Roweis}{2007}]{BR07} Blanton, M. R. \& Roweis, S., 2007, AJ, 133, 734
+\bibitem[\protect\citeauthoryear{Bower, Lucey \& Ellis}{1992}]{BLE92} Bower, R. G., Lucey, J. R. \& Ellis, R. S., 1992, MNRAS, 254, 601
 \bibitem[\protect\citeauthoryear{Brammer et al.}{2009}]{Brammer09} Brammer, G. B. et al., 2009, ApJ, 706, 173
 \bibitem[\protect\citeauthoryear{Brinchmann et al.}{2004}]{Brinch04} Brinchmann, J. et al., 2004, MNRAS, 351, 1151
 \bibitem[\protect\citeauthoryear{Bruzual \& Charlot}{2003}]{BC03} Bruzual, G. \& Charlot, S., 2003, MNRAS, 344, 1000
@@ -489,13 +494,19 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Casteels et al.}{2013}]{Casteels13} Casteels, K. et al., 2013, MNRAS, 429, 1051
 \bibitem[\protect\citeauthoryear{Chabrier et al.}{2003}]{Chab03} Chabrier, G., 2003, PASP, 115, 763
 \bibitem[\protect\citeauthoryear{Chen et al.}{2010}]{Chen10} Chen, X. Y. et al., 2010, A\&A, 515, 101
+\bibitem[\protect\citeauthoryear{Chester \& Roberts}{1964}]{Chester64} Chester, C. \& Roberts, M. S., 1964, AJ, 69, 635
+\bibitem[\protect\citeauthoryear{Cheung et al.}{2012}]{Cheung12} Cheung, E. et al., 2012, ApJ, 760, 131
 \bibitem[\protect\citeauthoryear{Cheung et al.}{2013}]{Cheung13} Cheung, E. et al., 2013, ApJ, 779, 162
 \bibitem[\protect\citeauthoryear{Conroy, Gunn \& White}{2009}]{CGW09} Conroy, C., Gunn, J. E. \& White, M. 2009, ApJ, 699, 486
+\bibitem[\protect\citeauthoryear{Coil et al.}{2008}]{Coil08} Coil, A. L. et al., 2008, ApJ, 672, 153
+\bibitem[\protect\citeauthoryear{Constantin, Hoyle \& Vogeley}{2008}]{CHV08} Constantin, A., Hoyle, F., Vogeley, M. S., 2008, ApJ, 673, 715
 \bibitem[\protect\citeauthoryear{Croom et al.}{2012}]{SAMI} Croom, S. et al. 2012, MNRAS, 421, 872
 \bibitem[\protect\citeauthoryear{Daddi et al.}{2007}]{Daddi07} Daddi, E. et al., 2007, ApJ, 670, 156
 \bibitem[\protect\citeauthoryear{Darg et al.}{2010}]{Darg10a} Darg, D. et al., 2010a, MNRAS, 401, 1552
 \bibitem[\protect\citeauthoryear{de Lucia \& Blaizot}{2007}]{deLucia07} de Lucia, G. \& Blaizot, J., 2007, MNRAS, 375, 2
+\bibitem[\protect\citeauthoryear{Di~Matteo, Springel \& Hernquist}{2005}]{diMatteo05} Di Matteo, T., Springel, V. \& Hernquist, L., 2005, Nature, 433, 604
 \bibitem[\protect\citeauthoryear{de Lucia}{2014}]{deLucia14} de Lucia, G., 2014, (arXiv:1407:7867)
+\bibitem[\protect\citeauthoryear{Driver et al.}{2006}]{Driver06} Driver, S. P. et al., 2006, MNRAS, 368, 414
 \bibitem[\protect\citeauthoryear{Elbaz et al.}{2007}]{Elbaz07} Elbaz, D. et al. 2007, A\&A, 468, 33
 \bibitem[\protect\citeauthoryear{Ellison et al.}{2011}]{Ellison11} Ellison, S. L. et al., 2001, MNRAS, 416, 2182
 \bibitem[\protect\citeauthoryear{Emsellem et al.}{2007}]{Em07} Emsellem, E. et al., 2007, IAU Symposium 235
@@ -504,6 +515,7 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Faber et al.}{2007}]{Faber07} Faber, S. M. et al., 2007, ApJ, 665, 265
 \bibitem[\protect\citeauthoryear{Falomo et al.}{2008}]{Falomo08} Falomo, R. et al., 2008, ApJ, 673, 694
 \bibitem[\protect\citeauthoryear{Falkenberg et al.}{2009}]{Falk09} Falkenberg, M. A. et al., 2009, MNRAS, 397, 1954
+\bibitem[\protect\citeauthoryear{Fang et al.}{2013}]{Fang13} Fang, J. J. et al., 2013, ApJ, 776, 63
 \bibitem[\protect\citeauthoryear{Foreman-Mackey et al.}{2013}]{Dan} Foreman-Mackey, D., Hogg, D. W., Lang, D., Goodman, J., 2013, PASP, 125, 306
 \bibitem[\protect\citeauthoryear{Genel et al.}{2008}]{Genel08} Genel, S. et al., 2008, ApJ, 688, 789
 \bibitem[\protect\citeauthoryear{Glazebrook et al.}{2003}]{Glazebrook03} Glazebrook, K. et al., 2003, ApJ, 587, 55
@@ -515,7 +527,8 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Im et al.}{2002}]{Im02} Im, M. et al., 2002, ApJ, 571, 136
 \bibitem[\protect\citeauthoryear{Jarosik et al.}{2011}]{WMAP} Jarosik, N. et al., 2011, ApJSS, 192, 18
 \bibitem[\protect\citeauthoryear{Kauffmann et al.}{2003}]{Kauff03} Kauffman, G. et al., 2003, MNRAS, 341, 33
-\bibitem[\protect\citeauthoryear{Kaviraj et al.}{2011}]{Kav11} Kaviraj, S. et al. 2011, MNRAS, 411, 2148
+\bibitem[\protect\citeauthoryear{Kaviraj et al.}{2011}]{Kav11} Kaviraj, S. et al., 2011, MNRAS, 411, 2148
+\bibitem[\protect\citeauthoryear{Kaviraj et al.}{2013}]{Kaviraj13} Kaviraj, S. et al., 2013, MNRAS, 428, 925
 \bibitem[\protect\citeauthoryear{Kaviraj}{2014}]{Kav14} Kaviraj, S., 2014, MNRAS, 440, 2944
 \bibitem[\protect\citeauthoryear{Kennicutt}{1997}]{Kennicutt97} Kennicutt, R. C., 1997, ApJ, 498, 491
 \bibitem[\protect\citeauthoryear{Kewley \& Ellison}{2008}]{Kewley08} Kewley, L. J. \& Ellison, S. L., 2008, ApJ, 681, 1183
@@ -535,11 +548,13 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 \bibitem[\protect\citeauthoryear{Masters et al.}{2010}]{Masters10} Masters, K. L. et al., 2010, MNRAS, 405, 783
 \bibitem[\protect\citeauthoryear{Masters et al.}{2011}]{Masters11} Masters, K. L. et al., 2011, MNRAS, 411, 2026
 \bibitem[\protect\citeauthoryear{Masters et al.}{2012}]{Masters12} Masters, K. L. et al., 2012, MNRAS, 424, 2180
+\bibitem[\protect\citeauthoryear{McIntosh et al.}{2014}]{McIntosh14} McIntosh, D, H. et al., 2014, MNRAS, 442, 533
 \bibitem[\protect\citeauthoryear{Melbourne et al.}{2012}]{Mel12} Melbourne, J. et al., 2012, ApJ, 748, 47
 \bibitem[\protect\citeauthoryear{Melvin et al.}{2014}]{Melvin14} Melvin, T. et al., 2014, MNRAS, 438, 2882
 \bibitem[\protect\citeauthoryear{Mendez et al.}{2011}]{Mendez11} Mendez, A. J. et al., 2011, ApJ, 736, 110
 \bibitem[\protect\citeauthoryear{Miller, Rose \& Cecil}{2011}]{MRC11} Miller, N. A., Rose, J. A. \& Cecil, G. 2011, ApJL, 727, L15
 \bibitem[\protect\citeauthoryear{Nair \& Abraham}{2010}]{NA10} Nair, P. B. \& Abraham, R. G. 2010, ApJSS, 186, 427 
+\bibitem[\protect\citeauthoryear{Nandra et al.}{2007}]{Nandra07} Nandra, K. et al., 2007, ApJ, 660, L11
 \bibitem[\protect\citeauthoryear{Noeske et al.}{2007}]{Noeske07} Noeske, K. G. et al., 2007, ApJ, 660, L43
 \bibitem[\protect\citeauthoryear{Oh et al.}{2011}]{Oh11} Oh, K. et al., 2011, ApJS, 195, 13
 \bibitem[\protect\citeauthoryear{Padmanabhan et al.}{2008}]{Pad08} Padmanabhan, N. et al., 2008, ApJ, 674, 1217
@@ -582,12 +597,24 @@ This publication made extensive use of the Tool for Operations on Catalogues And
 
 \section{Testing \starpy}\label{app_test}
 {\newchange
-In order to test that \starpy ~can find the correct quenching model for a given observed colour, {\refchange 25 synthesised galaxies were created with known SFHs (i.e. known values of $\theat$) from which optical and NUV colours were generated. These were input into \starpy ~ to ensure that the known values of $\theta$ were reproduced, within error, for each of the 25 synthesised galaxies. Figure~\ref{test_mosaic} shows the results for each of these 25 synthesis galaxies}, with the known values of $\theta$ shown by the red lines. In some cases this red line does not coincide with the peak of the distribution shown in the histograms for one parameter, however in all cases the intersection of the red lines is within the sample contours. }
+In order to test that \starpy ~can find the correct quenching model for a given observed colour, {\refchange 25 synthesised galaxies were created with known SFHs (i.e. known values of $\theta$) from which optical and NUV colours were generated. These were input into \starpy ~ to ensure that the known values of $\theta$ were reproduced, within error, for each of the 25 synthesised galaxies. Figure~\ref{test_mosaic} shows the results for each of these 25 synthesis galaxies}, with the known values of $\theta$ shown by the red lines. In some cases this red line does not coincide with the peak of the distribution shown in the histograms for one parameter, however in all cases the intersection of the red lines is within the sample contours. }
 \begin{figure*}
 \centering{
 \includegraphics[width=\textwidth]{mosaic_test.jpg}}
 \caption{Results from \starpy ~for an array of synthesised galaxies with known, i.e. \underline{true}, $t_q$ and $\tau$ values (marked by the red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration, assuming an error on the calculated known colours of $\sigma_{u-r} = 0.124$ and $\sigma_{NUV-u} = 0.215$, the average errors on the GZ sample colours. In each case \starpy ~succeeds in locating the true parameter values within the degeneracies of the star formation history model. These degeneracies can clearly be seen in Figure~\ref{pred}.}
 \label{test_mosaic}
+\end{figure*}
+
+\section{Using look up tables}\label{app_lookup}
+
+{\newchange Considering the size of the sample in this investigation of $126,316$ galaxies total, a three dimensional look up table (in observed time, quenching time and quenching rate) was generated using the star formation history function in \starpy ~to speed up the run time. Figure~\ref{lookup} shows an example of how using the look up table in place of the full function does not affect the results to a significant level. Table~\ref{median_lu} quotes the median values along with their $\pm 1\sigma$ ranges for both methods in comparison to the true values specified to test \starpy. The uncertainties incorporated into the quoted values by using the look up table are therefore minimal with a maximum $\Delta = 0.043$.}
+
+\begin{figure*}
+\centering{
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_full_sfh_function_0.pdf}
+\includegraphics[width=0.48\textwidth]{corner_test_starfpy_lookup_0.pdf}}
+\caption{Left panel: Results from \starpy ~for \underline{true} $t_q$ and $\tau$ values (red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The median value is shown by the solid blue line with the dashed lines encompassing $68\% (\pm 1\sigma)$ of the samples. The time taken to run for a single galaxy using this method is approximately 2 hours. Right panel: Results from \starpy ~for \underline{true} $t_q$ and $\tau$ values using a look up table generated from the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The time taken to run for a single galaxy using this method is approximately 2 minutes.}
+\label{lookup}
 \end{figure*}
 
 \begin{table*}
@@ -603,36 +630,42 @@ Look up table        & $3.850 \pm^{2.988}_{2.619}$ & $2.218 \pm^{0.399}_{0.649}$
 \label{median_lu}
 \end{table*}
 
-\section{Using look up tables}\label{app_lookup}
 
-{\newchange Considering the size of the sample in this investigation of $126,316$ galaxies total, a three dimensional look up table (in observed time, quenching time and quenching rate) was generated using the star formation history function in \starpy ~to speed up the run time. Figure~\ref{lookup} shows an example of how using the look up table in place of the full function does not affect the results to a significant level. Table~\ref{median_lu} quotes the median values along with their $\pm 1\sigma$ ranges for both methods in comparison to the true values specified to test \starpy. The uncertainties incorporated into the quoted values by using the look up table are therefore minimal with a maximum $\Delta = 0.043$.}
+{\refchange \section{Discarding Poorly Fit Galaxies}\label{discard}
 
-\begin{figure}
+We discard walker positions returned by \starpy~ with a corresponding probability of $P(\theta_k|d_k) < 0.2$ in order to exclude galaxies which are not well fit by the quenching model; for example blue cloud galaxies which are still star forming will be poorly fit by a quenching model (see Section~\ref{sfh}). This raises the issue of whether we exclude a significant fraction of our galaxy sample and whether those galaxies reside in a specific location of the colour-magnitude. The fraction of galaxies which had all or more than half of their walker positions discarded due to low probability are shown in Table \ref{discardnum}.
+
+
+\begin{table*}
 \centering{
-\includegraphics[width=0.48\textwidth]{corner_test_starfpy_full_sfh_function_0.pdf}
-\includegraphics[width=0.48\textwidth]{corner_test_starfpy_lookup_0.pdf}}
-\caption{Top panel: Results from \starpy ~for \underline{true} $t_q$ and $\tau$ values (red lines) using the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The median value is shown by the solid blue line with the dashed lines encompassing $68\% (\pm 1\sigma)$ of the samples. The time taken to run for a single galaxy using this method is approximately 2 hours. Bottom panel: Results from \starpy ~for \underline{true} $t_q$ and $\tau$ values using a look up table generated from the complete function to calculate the predicted colour of a proposed set of $\theta$ values in each MCMC iteration. The time taken to run for a single galaxy using this method is approximately 2 minutes.}
-\label{lookup}
-\end{figure}
+\caption{{\refchange Number of galaxies in each population which had walker positions discarded due to low probability in order to exclude those galaxies from the analysis which were poorly fit by this quenching model.}}
+\begin{tabular*}{0.85\textwidth}{r @{\extracolsep{\fill}} ccc}
+                                          & \textbf{Red Sequence}                                   & \textbf{Green Valley}                                  & \textbf{Blue Cloud}                                      \\ \hline
+All walkers discarded                     & \begin{tabular}[c]{@{}c@{}}1420\\ (7.00\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}437\\ (2.41\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}3109\\ (5.37\%)\end{tabular}  \\
+More than half walker positions discarded & \begin{tabular}[c]{@{}c@{}}2010\\ (9.92\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}779\\ (4.30\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}6669\\ (11.52\%)\end{tabular} \\ \hline
+\end{tabular*}}
+\label{discardnum}
+\end{table*}
 
-{\refchange \section{Discarding Poor Fit Galaxies}\label{discard}
 
-We discard walker positions returned by \starpy~ with a corresponding probability of $P(\theta_k|d_k) < 0.2$ in order to exclude galaxies which are not well fit by the quenching model; for example blue cloud galaxies which are still star forming will be poorly fit by a quenching model (see Section~\ref{sfh}). This raises the issue of whether we exclude a significant fraction of our galaxy sample and whether those galaxies reside in a specific location of the colour-magnitude. The fraction of galaxies which had all or more than half of their walker positions discarded due to low probability are as follows:
-
-Number of green galaxies with more than half of samples discarded: $779 (4.30 \%)$ \\
-Number of green galaxies with all samples discarded: $437 (2.41 \%)$ \\
-Number of red galaxies with more than half of samples discarded: $2010 (9.92 \%)$ \\
-Number of red galaxies with all samples discarded: $1420 (7.00 \%)$ \\
-Number of blue galaxies with more than half of samples discarded: $6669 (11.52 \%)$ \\
-Number of blue galaxies with all samples discarded: $3109 (5.37 \%)$ \\
-
-This is not a significant fraction of either population, therefore this shows that the \starpy~ module is effective in fitting the majority of galaxies and that this method of discarding walker positions ensures that poorly fit galaxies are removed from the analysis of the results. Figure \label{discarded} shows that these galaxies with discarded walker positions are also scattered across the optical-NUV colour-colour diagram and therefore \starpy is also effective in fitting galaxies across this entire plane. 
+This is not a significant fraction of either population, therefore this shows that the \starpy~ module is effective in fitting the majority of galaxies and that this method of discarding walker positions ensures that poorly fit galaxies are removed from the analysis of the results. Figure \label{discarded} shows that these galaxies with discarded walker positions are also scattered across the optical-NUV colour-colour diagram and therefore \starpy ~is also effective in fitting galaxies across this entire plane. 
 
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{discarded_galaxy_colour_colour.png}
 \caption{Contours show the full GZ2 subsample optical-NUV colour-colour diagram. The points show the positions of the galaxies which had all (top panels) or more than half (bottom panel) of their walker positions discarded due to their low probability for the red sequence (left), green valley (middle) and blue cloud (right).}
 \label{discarded}
 \end{figure*}
+}
+
+{\refchange \section{Observability of quenching galaxies} \label{observe}
+
+The numbers of galaxies found undergoing a rapid quench will be underestimated compared to the true value due to their observability, i.e. their time spent in the green valley is extremely short, so detecting a galaxy there is difficult. We considered this time spent in the green valley across our model parameter space of star formation histories and the results are shown below in Figure \ref{obsplot}.
+\begin{figure}
+\centering{
+\includegraphics[width=0.45\textwidth]{green_valley_time.pdf}}
+\caption{Plot showing the time spent in the green valley across the model star formation history parameter space. This affects the observability of those galaxies which have quenched rapidly and recently and have passed too quickly through the green valley to be detected. The white region denotes those models with colours that do not enter the green valley by the the present cosmic time.}
+\label{obsplot}
+\end{figure}
 }
 
 \end{document}
