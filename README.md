@@ -1,5 +1,5 @@
 # Green Valley Paper
-=======
+
 
 This is the repository for the study of how the quenching parameters derived using [starpy](https://www.github.com/zooniverse/starpy) are morphologically dependent. 
 Use of any of the materials are requested to cite Smethurst et al. 2015.
